@@ -1,0 +1,20 @@
+{
+    "package": {
+        "name": "on-skupack",
+        "repo": "binary",
+        "subject": "rackhd"
+    },
+
+    "version": {
+        "name": "master"
+    },
+
+    "files":
+    [
+        {
+            "includePattern": "tarballs/(.*\.tar\.gz)",
+            "uploadPattern": "on-skupack/master/$1"
+        }
+    ],
+    "publish": true
+}

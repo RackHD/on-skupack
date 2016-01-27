@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+SKUFILE=/var/renasar/on-http/.skupack/{{name}}.sku
+if [ -f ${SKUFILE} ]; then
+  SKUID=`cat ${SKUFILE}`
+  curl -X DELETE localhost:8080/api/common/skus/${SKUID}/pack
+  rm /var/renasar/on-http/.skupack/{{name}}.sku
+fi
+

@@ -1,0 +1,14 @@
+{
+    "name": "Quanta T41",
+    "rules": [
+        {
+            "path": "ohai.dmi.system.manufacturer",
+            "contains": "Quanta"
+        },
+        { 
+            "path": "ohai.dmi.system.product_name",
+            "contains": "T41S-2U"
+        }
+    ]
+}
+
