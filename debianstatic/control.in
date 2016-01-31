@@ -1,0 +1,11 @@
+Source: {{name}}
+Section: http
+Priority: optional
+Maintainer: Zachary Young <zachary.young@emc.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+
+Package: on-skupack-{{name}}
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: RackHD SKU package for {{name}}
