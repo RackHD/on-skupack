@@ -1,0 +1,19 @@
+{
+    "name": "Dell R630",
+    "rules": [
+        {
+            "path": "ipmi-fru.iDRAC8.Board Mfg",
+            "contains": "DELL"
+        },
+        {
+            "path": "ipmi-fru.iDRAC8.Board Part Number",
+            "contains": "0CNCJW"
+        }
+    ],
+    "taskRoot": "tasks",
+    "workflowRoot": "workflows",
+    "httpProfileRoot": "profiles",
+    "httpTemplatesRoot": "templates",
+    "httpStaticRoot": "static"
+}
+
