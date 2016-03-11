@@ -1,5 +1,5 @@
 {
-    "name": "Dell R630",
+    "name": "Dell C6320",
     "rules": [
         {
             "path": "ipmi-fru.iDRAC8.Board Mfg",
