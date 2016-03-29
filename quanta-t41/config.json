@@ -9,6 +9,13 @@
             "path": "ohai.dmi.system.product_name",
             "contains": "T41S-2U"
         }
-    ]
+    ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Blade"
+        }
+    },
+    "workflowRoot": "workflows",
+    "taskRoot": "tasks"
 }
 

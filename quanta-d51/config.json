@@ -9,6 +9,11 @@
             "path": "ohai.dmi.system.product_name",
             "contains": "D51B-2U"
         }
-    ]
+    ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Rackmount"
+        }
+    }
 }
 
