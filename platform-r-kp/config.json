@@ -1,0 +1,19 @@
+{
+    "name": "Platform-R KP",
+    "rules": [
+        {
+            "path": "ohai.dmi.base_board.manufacturer",
+            "contains": "Intel"
+        },
+        {
+            "path": "ohai.dmi.base_board.product_name",
+            "contains": "S2600KP"
+        }
+    ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Blade"
+        }
+    }
+}
+

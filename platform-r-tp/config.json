@@ -1,0 +1,19 @@
+{
+    "name": "Platform-R TP",
+    "rules": [
+        {
+            "path": "ohai.dmi.base_board.manufacturer",
+            "contains": "Intel"
+        },
+        {
+            "path": "ohai.dmi.base_board.product_name",
+            "contains": "S2600TP"
+        }
+    ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Blade"
+        }
+    }
+}
+
