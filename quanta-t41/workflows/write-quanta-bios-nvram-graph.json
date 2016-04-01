@@ -1,0 +1,46 @@
+{
+    "friendlyName": "Write Quanta BIOS NVRAM",
+    "injectableName": "Graph.Write.Quanta.BIOS.NVRAM",
+    "tasks": [
+      {
+        "label": "set-boot-pxe",
+        "taskName": "Task.Obm.Node.PxeBoot"
+      },
+      {
+        "label": "reboot",
+        "taskName": "Task.Obm.Node.Reboot",
+        "waitOn": {
+          "set-boot-pxe": "finished"
+        }
+      },
+      {
+        "label": "bootstrap-ubuntu",
+        "taskName": "Task.Linux.Bootstrap.Ubuntu",
+        "waitOn": {
+          "reboot": "succeeded"
+        }
+      },
+      {
+        "label": "download-nvram-settings",
+        "taskName": "Task.Linux.DownloadFiles",
+        "waitOn": {
+          "bootstrap-ubuntu": "succeeded"
+        }
+      },
+      {
+        "label": "nvram-settings",
+        "taskName": "Task.Linux.SetNvram.Ami",
+        "waitOn": {
+          "download-nvram-settings": "succeeded"
+        }
+      },
+      {
+        "label": "final-reboot",
+        "taskName": "Task.Obm.Node.Reboot",
+        "waitOn": {
+          "nvram-settings": "finished"
+        }
+      }
+    ],
+    "serviceGraph": false
+}
