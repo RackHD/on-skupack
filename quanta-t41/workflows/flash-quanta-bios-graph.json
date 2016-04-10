@@ -1,6 +1,12 @@
 {
     "friendlyName": "Flash Quanta BIOS",
     "injectableName": "Graph.Flash.Quanta.BIOS",
+    "options" : {
+        "when-reboot-at-end": {
+            "rebootAtEnd": "false",
+            "when": "{{ options.rebootAtEnd }}"
+        }
+    },
     "tasks": [
       {
         "label": "set-boot-pxe",
@@ -22,47 +28,55 @@
         }
       },
       {
-        "label": "download-bios-firmware",
-        "taskName": "Task.Linux.DownloadFiles",
+        "x-description": "Upgrade the BIOS firmware",
+        "label": "upgrade-bios-firmware",
+        "taskDefinition": {
+          "friendlyName": "Upgrade firmware images",
+          "injectableName": "Task.Linux.Command.Upgrade.BIOS",
+          "implementsTask": "Task.Base.Linux.Commands",
+          "options": {
+            "commands": [
+              {
+                "command": "sudo ./flash_bios.sh",
+                "downloadUrl": "/api/1.1/templates/flash_bios.sh"
+              }
+            ],
+            "file": null
+          },
+          "properties": {}
+        },
         "waitOn": {
           "bootstrap-ubuntu": "succeeded"
-        }
-      },
-      {
-        "label": "catalog-quanta-bios-before",
-        "taskName": "Task.Catalog.ami",
-        "waitOn": {
-          "download-bios-firmware": "succeeded"
-        }
-      },
-      {
-        "label": "provide-quanta-bios-version",
-        "taskName": "Task.Catalogs.Provide.Ami.BiosVersion",
-        "waitOn": {
-          "catalog-quanta-bios-before": "succeeded"
-        }
-      },
-      {
-        "label": "flash-bios",
-        "taskName": "Task.Linux.Flash.Ami.Bios",
-        "waitOn": {
-          "provide-quanta-bios-version": "succeeded"
         }
       },
       {
         "label": "catalog-quanta-bios-after",
         "taskName": "Task.Catalog.ami",
         "waitOn": {
-          "flash-bios": "succeeded"
+          "upgrade-bios-firmware": "succeeded"
+        }
+      },
+      {
+        "label": "when-reboot-at-end",
+        "taskName": "Task.Evaluate.Condition",
+        "waitOn": {
+          "catalog-quanta-bios-after": "finished"
         }
       },
       {
         "label": "final-reboot",
         "taskName": "Task.Obm.Node.Reboot",
         "waitOn": {
-          "catalog-quanta-bios-after": "finished"
+          "when-reboot-at-end": "succeeded"
         }
-      }
+      },
+      {
+        "label": "noop",
+        "taskName": "Task.noop",
+        "waitOn": {
+          "when-reboot-at-end": "failed"
+         }
+       }
     ],
     "serviceGraph": false
 }
