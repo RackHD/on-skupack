@@ -1,0 +1,15 @@
+{
+    "name": "Dell R730",
+    "rules": [
+        {
+            "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Mfg",
+            "contains": "DELL"
+        },
+        {
+            "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Part Number",
+            "contains": "04N3DF"
+        }
+    ],
+    "workflowRoot": "workflows"
+}
+
