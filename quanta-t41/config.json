@@ -13,9 +13,29 @@
     "skuConfig" : {
         "redfish" : {
             "computeType": "Blade"
+        },
+        "bmcFirmware" : {
+            "filename": "bmc/2b2s3360.ima",
+            "md5sum": "f4c1dbc166fc55ca1fc34a109d4e4c08",
+            "command": "bmc/socflash_x64",
+            "args": "-s option=x flashtype=2 if=${FLASH_FILE}"
+        },
+        "biosFirmware": {
+            "filename": "bios/S2S_3A17.BIN",
+            "md5sum": "bd550fc770bc2cb75bb9f29b8a772073",
+            "command": "bios/afulnx_64",
+            "args": "${FLASH_FILE} /P /B /K /N /ME"
+        },
+        "nvramFirmware": {
+            "filename": "bios/nvram_config_updated",
+            "md5sum": "f1da3b9bce73155716de6c3959b43219",
+            "command": "bios/SCELNX_64",
+            "args": "/i /s ${FLASH_FILE}"
         }
     },
     "workflowRoot": "workflows",
-    "taskRoot": "tasks"
+    "taskRoot": "tasks",
+    "httpTemplateRoot": "templates",
+    "httpStaticRoot": "static"
 }
 

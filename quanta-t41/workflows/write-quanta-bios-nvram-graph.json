@@ -1,6 +1,12 @@
 {
     "friendlyName": "Write Quanta BIOS NVRAM",
     "injectableName": "Graph.Write.Quanta.BIOS.NVRAM",
+    "options" : {
+        "when-reboot-at-end": {
+            "rebootAtEnd": "false",
+            "when": "{{ options.rebootAtEnd }}"
+        }
+    },
     "tasks": [
       {
         "label": "set-boot-pxe",
@@ -21,26 +27,48 @@
         }
       },
       {
-        "label": "download-nvram-settings",
-        "taskName": "Task.Linux.DownloadFiles",
+        "x-description": "Upgrade the nvram portion",
+        "label": "upgrade-nvram-firmware",
+        "taskDefinition": {
+          "friendlyName": "Upgrade firmware images",
+          "injectableName": "Task.Linux.Command.Upgrade.BIOS",
+          "implementsTask": "Task.Base.Linux.Commands",
+          "options": {
+            "commands": [
+              {
+                "command": "sudo ./flash_nvram.sh",
+                "downloadUrl": "/api/1.1/templates/flash_nvram.sh"
+              }
+            ],
+            "file": null
+          },
+          "properties": {}
+        },
         "waitOn": {
           "bootstrap-ubuntu": "succeeded"
         }
       },
       {
-        "label": "nvram-settings",
-        "taskName": "Task.Linux.SetNvram.Ami",
+        "label": "when-reboot-at-end",
+        "taskName": "Task.Evaluate.Condition",
         "waitOn": {
-          "download-nvram-settings": "succeeded"
+          "upgrade-nvram-firmware": "finished"
         }
       },
       {
         "label": "final-reboot",
         "taskName": "Task.Obm.Node.Reboot",
         "waitOn": {
-          "nvram-settings": "finished"
+          "when-reboot-at-end": "succeeded"
         }
-      }
+      },
+      {
+        "label": "noop",
+        "taskName": "Task.noop",
+        "waitOn": {
+          "when-reboot-at-end": "failed"
+         }
+       }
     ],
     "serviceGraph": false
 }
