@@ -1,0 +1,8 @@
+hostname rackhd-example-cisco-1
+
+# password = a
+username rackhd password 5 $1$.CW.hyB4$OmPM3Fh1J3arWQPCJcbhe0  role network-admin
+snmp-server community rackhd group network-admin
+
+feature telnet
+feature bash-shell
