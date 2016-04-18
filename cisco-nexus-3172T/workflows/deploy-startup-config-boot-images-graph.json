@@ -1,0 +1,77 @@
+{
+    "friendlyName": "Deploy Cisco Nexus 3000 switch",
+    "injectableName": "Graph.Switch.CiscoNexus3000.Deploy",
+    "options": {
+        "deploy-startup-config": {
+            "startupConfig": null
+        },
+        "deploy-boot-images": {
+            "kickstartImage": null,
+            "bootImage": null
+        }
+    },
+    "tasks": [
+        {
+            "label": "deploy-startup-config",
+            "taskDefinition": {
+                "friendlyName": "Deploy switch startup config",
+                "injectableName": "Task.Inline.Switch.Deploy.StartupConfig",
+                "implementsTask": "Task.Base.Linux.Commands",
+                "options": {
+                    "startupConfig": null,
+                    "startupConfigUri": "{{ api.base }}/templates/{{ options.startupConfig }}",
+                    "commands": [
+                        {
+                            "downloadUrl": "/api/1.1/templates/cisco-deploy-startup-config.py"
+                        }
+                    ]
+                },
+                "properties": {}
+            }
+        },
+        {
+            "label": "deploy-boot-images",
+            "taskDefinition": {
+                "friendlyName": "Deploy switch boot images",
+                "injectableName": "Task.Inline.Switch.Deploy.BootImages",
+                "implementsTask": "Task.Base.Linux.Commands",
+                "options": {
+                    "kickstartImage": null,
+                    "bootImage": null,
+                    "staticDir": "cisco",
+                    "kickstartUri": "{{ api.server }}/{{ options.staticDir }}/{{ options.kickstartImage }}",
+                    "bootImageUri": "{{ api.server }}/{{ options.staticDir }}/{{ options.bootImage }}",
+                    "commands": [
+                        {
+                            "downloadUrl": "/api/1.1/templates/cisco-deploy-boot-images.py"
+                        }
+                    ]
+                },
+                "properties": {}
+            },
+            "waitOn": {
+                "deploy-startup-config": "succeeded"
+            }
+        },
+        {
+            "label": "catalog-switch-config",
+            "taskDefinition": {
+                "friendlyName": "Catalog Cisco Switch Config",
+                "injectableName": "Task.Inline.Catalog.Switch.Cisco.Config",
+                "implementsTask": "Task.Base.Linux.Commands",
+                "options": {
+                    "commands": [
+                        {
+                            "downloadUrl": "/api/1.1/templates/cisco-catalog-config.py",
+                            "catalog": { "format": "json", "source": "config" }
+                        }
+                    ]
+                },
+                "properties": {}
+            },
+            "waitOn": {
+                "deploy-boot-images": "succeeded"
+            }
+        }
+    ]
+}
