@@ -2,40 +2,22 @@
     "friendlyName": "Deploy Cisco Nexus 3000 switch",
     "injectableName": "Graph.Switch.CiscoNexus3000.Deploy",
     "options": {
-        "deploy-startup-config": {
-            "startupConfig": null
-        },
-        "deploy-boot-images": {
+        "deploy-config-and-images": {
+            "startupConfig": null,
             "kickstartImage": null,
             "bootImage": null
         }
     },
     "tasks": [
         {
-            "label": "deploy-startup-config",
+            "label": "deploy-config-and-images",
             "taskDefinition": {
-                "friendlyName": "Deploy switch startup config",
-                "injectableName": "Task.Inline.Switch.Deploy.StartupConfig",
+                "friendlyName": "Deploy switch config and images",
+                "injectableName": "Task.Inline.Switch.Deploy.Cisco",
                 "implementsTask": "Task.Base.Linux.Commands",
                 "options": {
                     "startupConfig": null,
                     "startupConfigUri": "{{ api.base }}/templates/{{ options.startupConfig }}",
-                    "commands": [
-                        {
-                            "downloadUrl": "/api/1.1/templates/cisco-deploy-startup-config.py"
-                        }
-                    ]
-                },
-                "properties": {}
-            }
-        },
-        {
-            "label": "deploy-boot-images",
-            "taskDefinition": {
-                "friendlyName": "Deploy switch boot images",
-                "injectableName": "Task.Inline.Switch.Deploy.BootImages",
-                "implementsTask": "Task.Base.Linux.Commands",
-                "options": {
                     "kickstartImage": null,
                     "bootImage": null,
                     "staticDir": "cisco",
@@ -43,14 +25,11 @@
                     "bootImageUri": "{{ api.server }}/{{ options.staticDir }}/{{ options.bootImage }}",
                     "commands": [
                         {
-                            "downloadUrl": "/api/1.1/templates/cisco-deploy-boot-images.py"
+                            "downloadUrl": "/api/1.1/templates/cisco-deploy-config-and-images.py"
                         }
                     ]
                 },
                 "properties": {}
-            },
-            "waitOn": {
-                "deploy-startup-config": "succeeded"
             }
         },
         {
@@ -70,7 +49,7 @@
                 "properties": {}
             },
             "waitOn": {
-                "deploy-boot-images": "succeeded"
+                "deploy-config-and-images": "succeeded"
             }
         }
     ]
