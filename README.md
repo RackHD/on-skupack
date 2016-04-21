@@ -10,7 +10,7 @@ $ ./build-package.bash <sku_pack_directory> <subname>
 
 * Register a new SKU with the package
 ```
-$ curl -X POST --data-binary @sku_pack_directory_subname.tar.gz http://localhost:8080/api/common/skus/pack
+$ curl -X POST -F file=@tarballs/sku_pack_directory_subname.tar.gz localhost:8080/api/common/skus/pack
 ```
 
 * Please refer to [SKU PACK Guide](http://rackhd.readthedocs.org/en/latest/rackhd/index.html#workflow-sku-support) for more API commands
