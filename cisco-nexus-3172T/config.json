@@ -12,10 +12,8 @@
     ],
     "discoveryGraphName": "Graph.Switch.CiscoNexus3000.Deploy",
     "discoveryGraphOptions": {
-        "deploy-startup-config": {
-            "startupConfig": "example-cisco-startup-config"
-        },
-        "deploy-boot-images": {
+        "deploy-config-and-images": {
+            "startupConfig": "example-cisco-startup-config",
             "kickstartImage": "n3000-uk9-kickstart.6.0.2.U5.2.bin",
             "bootImage": "n3000-uk9.6.0.2.U5.2.bin"
         }
