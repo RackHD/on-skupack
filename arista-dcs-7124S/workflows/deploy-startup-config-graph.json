@@ -3,9 +3,7 @@
     "injectableName": "Graph.Switch.Arista.Deploy",
     "options": {
         "deploy-config": {
-            "startupConfig": null,
-            "kickstartImage": null,
-            "bootImage": null
+            "startupConfig": null
         }
     },
     "tasks": [
@@ -20,7 +18,7 @@
                     "startupConfigUri": "{{ api.base }}/templates/{{ options.startupConfig }}",
                     "commands": [
                         {
-                            "downloadUrl": "/api/1.1/templates/arista-deploy-startup-config.py"
+                            "downloadUrl": "{{ api.base }}/templates/arista-deploy-startup-config.py"
                         }
                     ]
                 },
