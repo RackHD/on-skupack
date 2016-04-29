@@ -4,8 +4,6 @@ DOWNLOAD_DIR=/opt/downloads
 CMD="<%= sku.bmcFirmware.command %>"
 CMD=${CMD##*/}
 CMD="/opt/downloads/${CMD}"
-echo "Download Dir got assigned"
-
 
 #
 # Download the sku specific file if it exists
@@ -14,7 +12,6 @@ curl --retry 3 <%=api.server%>/${filename} -o ${DOWNLOAD_DIR}/${filename##*/}
 md5=($(md5sum ${DOWNLOAD_DIR}/${filename##*/}))
 test ${md5} = "<%= sku.bmcFirmware.md5sum %>"
 FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
-
 
 #
 # Download the user uploaded file if specified to override default
@@ -27,7 +24,6 @@ FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
   test `curl ${fileMd5Uri}` = "${md5}"
   FLASH_FILE=${outputPath}
 <% } %>
-
 
 #Raw Lan command to get BMC card type
 getLanCommand=$(ipmitool raw 0x0C 0x02 0x01 0xFF 0x00 0x00)
@@ -60,10 +56,10 @@ sleep 5
 
 counter=90
 until [ $counter -le 0 ]; do
-    echo $counter
     set +e
-    if sudo ipmitool mc info | grep -q 'Manufacturer ID'; then
-        set -e
+    check=$(sudo ipmitool mc info | grep -c 'Manufacturer ID')
+    set -e
+    if [ $check == 1 ]; then
         #Raw LAN command to set the BMC card type
         ipmitool raw 0x0C 0x01 0x01 0xFF $bmcCardType
         sleep 8
