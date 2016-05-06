@@ -1,0 +1,15 @@
+{
+    "name": "Arista DCS 7124S Switch",
+    "rules": {
+        "path": "version.Hardwaremodel",
+        "equals": "AristaDCS-7124S-F"
+    },
+    "discoveryGraphName": "Graph.Switch.Arista.Deploy",
+    "discoveryGraphOptions": {
+        "deploy-startup-config": {
+            "startupConfig": "arista-startup-config"
+        }
+    },
+    "workflowRoot": "workflows",
+    "httpTemplateRoot": "templates"
+}
