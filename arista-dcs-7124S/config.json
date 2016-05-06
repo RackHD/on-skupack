@@ -6,7 +6,7 @@
     },
     "discoveryGraphName": "Graph.Switch.Arista.Deploy",
     "discoveryGraphOptions": {
-        "deploy-config": {
+        "deploy-startup-config": {
             "startupConfig": "arista-startup-config"
         }
     },

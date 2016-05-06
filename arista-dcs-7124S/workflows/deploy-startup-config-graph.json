@@ -2,7 +2,7 @@
     "friendlyName": "Deploy Arista switch",
     "injectableName": "Graph.Switch.Arista.Deploy",
     "options": {
-        "deploy-config": {
+        "deploy-startup-config": {
             "startupConfig": null
         }
     },
