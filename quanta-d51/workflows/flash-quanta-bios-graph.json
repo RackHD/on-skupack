@@ -1,0 +1,82 @@
+{
+    "friendlyName": "Flash Quanta BIOS",
+    "injectableName": "Graph.Flash.Quanta.BIOS",
+    "options" : {
+        "when-reboot-at-end": {
+            "rebootAtEnd": "false",
+            "when": "{{ options.rebootAtEnd }}"
+        }
+    },
+    "tasks": [
+      {
+        "label": "set-boot-pxe",
+        "taskName": "Task.Obm.Node.PxeBoot",
+        "ignoreFailure": true
+      },
+      {
+        "label": "reboot",
+        "taskName": "Task.Obm.Node.Reboot",
+        "waitOn": {
+          "set-boot-pxe": "finished"
+        }
+      },
+      {
+        "label": "bootstrap-ubuntu",
+        "taskName": "Task.Linux.Bootstrap.Ubuntu",
+        "waitOn": {
+          "reboot": "succeeded"
+        }
+      },
+      {
+        "x-description": "Upgrade the BIOS firmware",
+        "label": "upgrade-bios-firmware",
+        "taskDefinition": {
+          "friendlyName": "Upgrade firmware images",
+          "injectableName": "Task.Linux.Command.Upgrade.BIOS",
+          "implementsTask": "Task.Base.Linux.Commands",
+          "options": {
+            "commands": [
+              {
+                "command": "sudo ./flash_bios.sh",
+                "downloadUrl": "/api/1.1/templates/flash_bios.sh"
+              }
+            ],
+            "file": null
+          },
+          "properties": {}
+        },
+        "waitOn": {
+          "bootstrap-ubuntu": "succeeded"
+        }
+      },
+      {
+        "label": "catalog-quanta-bios-after",
+        "taskName": "Task.Catalog.ami",
+        "waitOn": {
+          "upgrade-bios-firmware": "succeeded"
+        }
+      },
+      {
+        "label": "when-reboot-at-end",
+        "taskName": "Task.Evaluate.Condition",
+        "waitOn": {
+          "catalog-quanta-bios-after": "finished"
+        }
+      },
+      {
+        "label": "final-reboot",
+        "taskName": "Task.Obm.Node.Reboot",
+        "waitOn": {
+          "when-reboot-at-end": "succeeded"
+        }
+      },
+      {
+        "label": "noop",
+        "taskName": "Task.noop",
+        "waitOn": {
+          "when-reboot-at-end": "failed"
+         }
+       }
+    ],
+    "serviceGraph": false
+}
