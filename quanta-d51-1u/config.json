@@ -9,5 +9,26 @@
             "path": "ohai.dmi.system.product_name",
             "contains": "D51B-1U"
         }
-    ]
+    ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Rackmount"
+        },
+        "bmcFirmware" : {
+            "filename": "bmc/2b2s3320.ima",
+            "md5sum": "af3897d03fcaf141fdbb5ec2db7d077f",
+            "command": "bmc/socflash_x64",
+            "args": "-s option=x flashtype=2 if=${FLASH_FILE}"
+        },
+        "biosFirmware": {
+            "filename": "bios/S2B_3A21.BIN",
+            "md5sum": "f4eb7bfea73accc32860425f14f4aa6d",
+            "command": "bios/afulnx64/afulnx_64",
+            "args": "${FLASH_FILE} /P /B /K /N /L"
+        }
+    },
+    "workflowRoot": "workflows",
+    "taskRoot": "tasks",
+    "httpTemplateRoot": "templates",
+    "httpStaticRoot": "static"
 }
