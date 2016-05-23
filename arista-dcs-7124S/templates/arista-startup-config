@@ -10,5 +10,8 @@ no shut
 snmp-server community rackhd
 snmp-server group network-admin v2c
 
+interface Management1
+ip address <%=switchIp%>
+
 end
 
