@@ -1,0 +1,9 @@
+{
+    "name": "Cisco Nexus C3164PQ",
+    "rules": [
+        {
+            "path": "version.chassis_id",
+            "regex": "Nexus3000 C3164PQ Chassis"
+        }
+    ]
+}
