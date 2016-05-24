@@ -1,5 +1,5 @@
 {
-    "name": "Quanta D51",
+    "name": "Quanta D51 2U",
     "rules": [
         {
             "path": "ohai.dmi.system.manufacturer",
