@@ -1,0 +1,85 @@
+{
+  "friendlyName": "Flash Intel Firmware",
+  "injectableName": "Graph.Flash.Intel.Firmware",
+  "options": {
+    "when-reboot-at-end": {
+      "rebootAtEnd": "false",
+      "when": "{{ options.rebootAtEnd }}"
+     },
+    "bootstrap-ubuntu": {
+      "overlayfs": "flash_intel.overlay.cpio.gz"
+    }
+  },
+  "tasks": [
+    {
+      "label": "set-boot-pxe",
+      "taskName": "Task.Obm.Node.PxeBoot",
+      "ignoreFailure": true
+    },
+    {
+      "label": "reboot-start",
+      "taskName": "Task.Obm.Node.Reboot",
+      "waitOn": {
+        "set-boot-pxe": "finished"
+      }
+    },
+    {
+      "label": "bootstrap-ubuntu",
+      "taskName": "Task.Linux.Bootstrap.Ubuntu",
+      "waitOn": {
+        "reboot-start": "succeeded"
+      }
+    },
+    {
+      "x-description": "Upgrade the firmware",
+      "label": "upgrade-firmware",
+      "taskDefinition": {
+        "friendlyName": "Upgrade firmware images",
+        "injectableName": "Task.Linux.Command.Upgrade.Firmware",
+        "implementsTask": "Task.Base.Linux.Commands",
+        "options": {
+          "commands": [
+            {
+              "command": "sudo ./flash_firmware.sh",
+              "downloadUrl": "/api/1.1/templates/flash_firmware.sh"
+            }
+          ],
+          "file": null
+        },
+        "properties": {}
+      },
+      "waitOn": {
+        "bootstrap-ubuntu": "succeeded"
+      }
+    },
+    {
+      "label": "catalog-flashupdt",
+      "taskName": "Task.Catalog.flashupdt",
+      "waitOn": {
+        "upgrade-firmware": "succeeded"
+      },
+      "ignoreFailure": true
+    },
+    {
+      "label": "when-reboot-at-end",
+      "taskName": "Task.Evaluate.Condition",
+      "waitOn": {
+        "catalog-flashupdt": "finished"
+      }
+    },
+    {
+      "label": "final-reboot",
+      "taskName": "Task.Obm.Node.Reboot",
+      "waitOn": {
+        "when-reboot-at-end": "succeeded"
+      }
+    },
+    {
+      "label": "noop",
+      "taskName": "Task.noop",
+      "waitOn": {
+        "when-reboot-at-end": "failed"
+       }
+     }
+  ]
+}

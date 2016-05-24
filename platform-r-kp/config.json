@@ -13,7 +13,14 @@
     "skuConfig" : {
         "redfish" : {
             "computeType": "Blade"
+        },
+        "biosFirmware": {
+            "filename": "S2600KP_SFUP_BIOS01010016_ME030103021_BMC0143r9685_FRUSDR114.zip",
+            "md5sum": "4a298db5919071f5da823d37f1242108"
         }
-    }
+    },
+    "workflowRoot": "workflows",
+    "httpTemplateRoot": "templates",
+    "httpStaticRoot": "static"
 }
 
