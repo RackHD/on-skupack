@@ -1,0 +1,13 @@
+{
+    "name": "Quanta D51 1U",
+    "rules": [
+        {
+            "path": "ohai.dmi.system.manufacturer",
+            "contains": "Quanta"
+        },
+        {
+            "path": "ohai.dmi.system.product_name",
+            "contains": "D51B-1U"
+        }
+    ]
+}
