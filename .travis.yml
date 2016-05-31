@@ -12,8 +12,6 @@ addons:
 before_deploy:
  - ./build-package.bash quanta-d51 "${TRAVIS_BRANCH}"
  - ./build-package.bash quanta-t41 "${TRAVIS_BRANCH}"
- - ./build-package.bash platform-r-kp "${TRAVIS_BRANCH}"
- - ./build-package.bash platform-r-tp "${TRAVIS_BRANCH}"
  - if [ ! -e deb ]; then mkdir deb && cp -a *.deb deb/; fi
 
 deploy:
