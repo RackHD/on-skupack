@@ -1,9 +1,11 @@
 {
     "name": "Arista DCS 7124S Switch",
-    "rules": {
-        "path": "version.Hardwaremodel",
-        "equals": "AristaDCS-7124S-F"
-    },
+    "rules": [
+        {
+            "path": "version.Hardwaremodel",
+            "equals": "AristaDCS-7124S-F"
+        }
+    ],
     "discoveryGraphName": "Graph.Switch.Arista.Deploy",
     "discoveryGraphOptions": {
         "deploy-startup-config": {
