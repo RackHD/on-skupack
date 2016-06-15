@@ -1,0 +1,54 @@
+{
+    "friendlyName": "Create RAID via perccli",
+    "injectableName": "Graph.Raid.Create.Perccli",
+    "options": {
+        "bootstrap-ubuntu": {
+            "overlayfs": "common/dell.raid.overlay.cpio.gz"
+        },
+        "create-raid": {
+            "path": "/opt/MegaRAID/perccli/perccli64"
+        }
+    },
+    "tasks": [
+        {
+            "ignoreFailure": true,
+            "label": "set-boot-pxe",
+            "taskName": "Task.Obm.Node.PxeBoot"
+        },
+        {
+            "label": "reboot",
+            "taskName": "Task.Obm.Node.Reboot",
+            "waitOn": {
+                "set-boot-pxe": "finished"
+            }
+        },
+        {
+            "label": "bootstrap-ubuntu",
+            "taskName": "Task.Linux.Bootstrap.Ubuntu",
+            "waitOn": {
+                "reboot": "succeeded"
+            }
+        },
+        {
+            "label": "create-raid",
+            "taskName": "Task.Raid.Create.MegaRAID",
+            "waitOn": {
+                "bootstrap-ubuntu": "succeeded"
+            }
+        },
+        {
+            "label": "refresh-catalog-megaraid",
+            "taskName": "Task.Catalog.perccli",
+            "waitOn": {
+                "create-raid": "succeeded"
+            }
+        },
+        {
+            "label": "final-reboot",
+            "taskName": "Task.Obm.Node.Reboot",
+            "waitOn": {
+                "refresh-catalog-megaraid": "finished"
+            }
+        }
+    ]
+}
