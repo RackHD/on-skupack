@@ -1,0 +1,15 @@
+{
+     "name": "Brocade VDX SKU",
+     "rules": [
+         {
+             "regex": "Network Operating System",
+             "path": "version"
+         }
+     ],
+     "discoveryGraphName": "Graph.Switch.BrocadeVDX.Deploy",
+     "discoveryGraphOptions": {
+         "deploy-startup-config": {
+             "startupConfig": "brocade-vdx-config-sample"  
+         }
+     }
+}
