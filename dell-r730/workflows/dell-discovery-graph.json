@@ -4,9 +4,6 @@
     "options": {
         "bootstrap-ubuntu": {
             "overlayfs": "common/dell.raid.overlay.cpio.gz"
-        },
-        "create-raid": {
-            "path": "/opt/MegaRAID/perccli/perccli64"
         }
     },
     "tasks": [
