@@ -19,13 +19,6 @@
             }
         },
         {
-            "label": "dell-racadm-get-config-catalog",
-            "taskName": "Task.Dell.Racadm.GetConfigCatalog",
-            "waitOn": {
-                "catalog-perccli": "succeeded"
-            }
-        },
-        {
             "label": "shell-reboot",
             "taskName": "Task.ProcShellReboot",
             "waitOn": {
