@@ -1,9 +1,9 @@
 {
-    "name": "Cisco Nexus C3164PQ",
+    "name": "Cisco Nexus 3132",
     "rules": [
         {
             "path": "version.chassis_id",
-            "equals": "Nexus3000 C3164PQ Chassis"
+            "equals": "Nexus 3132 Chassis"
         }
     ]
 }
