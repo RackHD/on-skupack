@@ -14,6 +14,8 @@
     "workflowRoot": "workflows",
     "httpProfileRoot": "profiles",
     "httpTemplatesRoot": "templates",
-    "httpStaticRoot": "static"
+    "httpStaticRoot": "static",
+    "discoveryGraphName": "Graph.Dell.Discovery",
+    "discoveryGraphOptions": {}
 }
 

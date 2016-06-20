@@ -10,6 +10,8 @@
             "contains": "04N3DF"
         }
     ],
-    "workflowRoot": "workflows"
+    "workflowRoot": "workflows",
+    "discoveryGraphName": "Graph.Dell.Discovery",
+    "discoveryGraphOptions": {}
 }
 
