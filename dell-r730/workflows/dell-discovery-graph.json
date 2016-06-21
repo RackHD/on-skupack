@@ -22,7 +22,7 @@
             "label": "shell-reboot",
             "taskName": "Task.ProcShellReboot",
             "waitOn": {
-                "dell-racadm-get-config-catalog": "finished"
+                "catalog-perccli": "finished"
             }
         }
     ]
