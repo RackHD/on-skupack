@@ -1,0 +1,9 @@
+{
+    "name": "Brocade VDX 6740",
+    "rules": [
+        {
+            "path": "snmp-1.ENTITY-MIB::entPhysicalDescr_1",
+            "equals": "VDX6740"
+        }
+    ]
+}
