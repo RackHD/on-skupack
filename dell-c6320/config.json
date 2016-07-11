@@ -10,11 +10,7 @@
             "contains": "04FNTC"
         }
     ],
-    "taskRoot": "tasks",
     "workflowRoot": "workflows",
-    "httpProfileRoot": "profiles",
-    "httpTemplatesRoot": "templates",
-    "httpStaticRoot": "static",
     "discoveryGraphName": "Graph.Dell.Discovery",
     "discoveryGraphOptions": {}
 }
