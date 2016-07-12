@@ -21,7 +21,7 @@ FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
   outputPath="${DOWNLOAD_DIR}/<%= file %>"
   curl --retry 3 ${fileUri} -o ${outputPath}
   md5=($(md5sum ${outputPath}))
-  test `curl ${fileMd5Uri}` = "\"${md5}\""
+  test `curl ${fileMd5Uri}` = "${md5}"
   FLASH_FILE=${outputPath}
 <% } %>
 
