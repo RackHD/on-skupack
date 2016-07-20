@@ -10,6 +10,12 @@
             "contains": "072T6D"
         }
     ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Rackmount"
+        },
+        "bmcMac": "bmc.data.MAC Address"
+    },
     "workflowRoot": "workflows",
     "discoveryGraphName": "Graph.Dell.Discovery",
     "discoveryGraphOptions": {}

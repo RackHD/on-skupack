@@ -31,7 +31,8 @@
             "md5sum": "f1da3b9bce73155716de6c3959b43219",
             "command": "bios/SCELNX_64",
             "args": "/i /s ${FLASH_FILE}"
-        }
+        },
+        "bmcMac": "bmc.data.MAC Address"
     },
     "workflowRoot": "workflows",
     "taskRoot": "tasks",
