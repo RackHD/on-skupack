@@ -10,6 +10,12 @@
             "contains": "0CNCJW"
         }
     ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Rackmount"
+        },
+        "bmcMac": "bmc.data.MAC Address"
+    },
     "workflowRoot": "workflows",
     "discoveryGraphName": "Graph.Dell.Discovery",
     "discoveryGraphOptions": {}

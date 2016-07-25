@@ -25,7 +25,8 @@
             "md5sum": "f4eb7bfea73accc32860425f14f4aa6d",
             "command": "bios/afulnx64/afulnx_64",
             "args": "${FLASH_FILE} /P /B /K /N /L"
-        }
+        },
+        "bmcMac": "bmc.data.MAC Address"
     },
     "workflowRoot": "workflows",
     "taskRoot": "tasks",

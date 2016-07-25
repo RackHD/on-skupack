@@ -10,6 +10,12 @@
             "contains": "04FNTC"
         }
     ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Blade"
+        },
+        "bmcMac": "bmc.data.MAC Address"
+    },
     "workflowRoot": "workflows",
     "discoveryGraphName": "Graph.Dell.Discovery",
     "discoveryGraphOptions": {}
