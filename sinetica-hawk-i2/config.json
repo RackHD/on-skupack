@@ -1,0 +1,38 @@
+{
+    "name": "Sinetica Panduit iPDU",
+    "rules": [
+        {
+            "path": "snmp-1.SNMPv2-MIB::sysDescr_0",
+            "regex": "^(?=.*Sinetica)|(?=.*iPDU)"
+        },
+        {
+            "path": "snmp-1.SNMPv2-MIB::sysObjectID_0",
+            "contains": "HAWK-I2-MIB::hawki2MIB"
+        }
+    ],
+    "skuConfig" : {
+        "pduMibs" : [
+            "HAWK-I2-MIB::pduName",
+            "HAWK-I2-MIB::pduRS",
+            "HAWK-I2-MIB::pduMonEn",
+            "HAWK-I2-MIB::pduCommsFail",
+            "HAWK-I2-MIB::pduRMSVoltsValue",
+            "HAWK-I2-MIB::pduRMSAmpsValue",
+            "HAWK-I2-MIB::pduTotalEnergyValue",
+            "HAWK-I2-MIB::pduMeanKVAValue",
+            "HAWK-I2-MIB::pduMeanKWattsValue",
+            "HAWK-I2-MIB::pduPwrFactorValue",
+            "HAWK-I2-MIB::pduPwrSupplyFreq"
+        ],
+        "outletMibs": [
+            "HAWK-I2-MIB::pduOutName",
+            "HAWK-I2-MIB::pduOutOn",
+            "HAWK-I2-MIB::pduOutRMSAmpsValue",
+            "HAWK-I2-MIB::pduOutRMSAmpsPeak",
+            "HAWK-I2-MIB::pduOutMeanKVAValue",
+            "HAWK-I2-MIB::pduOutKWHrValue",
+            "HAWK-I2-MIB::pduOutPFactorValue"        
+        ],
+        "type": "sinetica"
+    }
+}
