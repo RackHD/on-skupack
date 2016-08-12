@@ -1,5 +1,5 @@
 {
-    "friendlyName": "Deploy Cisco Nexus 3000 switch",
+    "friendlyName": "Deploy Cisco Nexus 9000 switch",
     "injectableName": "Graph.Switch.CiscoNexus3000.Deploy",
     "options": {
         "deploy-config-and-images": {

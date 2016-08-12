@@ -3,19 +3,18 @@
     "rules": [
         {
             "path": "version.chassis_id",
-            "regex": "Nexus 3172T Chassis"
-        },
-        {
-            "path": "version.module_id",
-            "equals": "48x10GT + 6x40G Supervisor"
+            "equals": "Nexus 3172T Chassis"
         }
-    ],
+     ],
+    "workflowRoot": "workflows",
     "discoveryGraphName": "Graph.Switch.CiscoNexus3000.Deploy",
     "discoveryGraphOptions": {
         "deploy-config-and-images": {
+            "comment": "The Cisco firmware names provided are for examples only",
             "startupConfig": "example-cisco-startup-config",
-            "kickstartImage": "n3000-uk9-kickstart.6.0.2.U5.2.bin",
-            "bootImage": "n3000-uk9.6.0.2.U5.2.bin"
+            "kickstartImage": "n3000-uk9-kickstart.6.0.2.U6.6.252.bin",
+            "bootImage": "n3000-uk9.6.0.2.U6.6.252.bin"
         }
-    }
+    },
+    "httpTemplateRoot": "templates"
 }

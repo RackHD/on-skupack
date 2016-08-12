@@ -1,16 +1,16 @@
 {
-    "name": "Cisco Nexus 3132",
+    "name": "Cisco Nexus 9332",
     "rules": [
         {
             "path": "version.chassis_id",
-            "equals": "Nexus 3132 Chassis"
+            "equals": "Nexus 9332 Chassis"
         }
     ],
     "workflowRoot": "workflows",
     "discoveryGraphName": "Graph.Switch.CiscoNexus3000.Deploy",
     "discoveryGraphOptions": {
         "deploy-config-and-images": {
-            "comment": "The Cisco firmware names provided are for examples only",
+	        "comment": "The Cisco firmware names provided are for examples only",
             "startupConfig": "example-cisco-startup-config",
             "kickstartImage": "n3000-uk9-kickstart.6.0.2.U5.2.bin",
             "bootImage": "n3000-uk9.6.0.2.U5.2.bin"

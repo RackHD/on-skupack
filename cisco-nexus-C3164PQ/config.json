@@ -5,5 +5,16 @@
             "path": "version.chassis_id",
             "equals": "Nexus3000 C3164PQ Chassis"
         }
-    ]
+    ],
+    "workflowRoot": "workflows",
+    "discoveryGraphName": "Graph.Switch.CiscoNexus3000.Deploy",
+    "discoveryGraphOptions": {
+        "deploy-config-and-images": {
+            "comment": "The Cisco firmware names provided are for examples only",
+            "startupConfig": "example-cisco-startup-config",
+            "kickstartImage": "n3000-uk9-kickstart.6.0.2.U5.2.bin",
+            "bootImage": "n3000-uk9.6.0.2.U5.2.bin"
+        }
+    },
+    "httpTemplateRoot": "templates"
 }

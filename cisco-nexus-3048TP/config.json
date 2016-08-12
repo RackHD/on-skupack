@@ -1,9 +1,9 @@
 {
-    "name": "Cisco Nexus 3132",
+    "name": "Cisco Nexus 3048",
     "rules": [
         {
             "path": "version.chassis_id",
-            "equals": "Nexus 3132 Chassis"
+            "equals": "Nexus 3048 Chassis"
         }
     ],
     "workflowRoot": "workflows",
