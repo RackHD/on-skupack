@@ -4,6 +4,10 @@
         {
             "path": "version.chassis_id",
             "equals": "Nexus 3048 Chassis"
+        },
+        {
+            "path": "snmp-1.ENTITY-MIB::entPhysicalModelName_10",
+            "contains": "N3K-C3048TP-1GE"
         }
     ],
     "workflowRoot": "workflows",
@@ -16,5 +20,137 @@
             "bootImage": "n3000-uk9.6.0.2.U5.2.bin"
         }
     },
-    "httpTemplateRoot": "templates"
+    "httpTemplateRoot": "templates",
+    "skuConfig": {
+        "type": "cisco",
+        "snmp": {
+            "sensorOids" : [
+                "1.3.6.1.4.1.9.9.91.1.1.1.1.4",
+                "1.3.6.1.4.1.9.9.117.1.1.2.1.2.470",
+                "1.3.6.1.4.1.9.9.117.1.1.2.1.2.471",
+                "1.3.6.1.4.1.9.9.117.1.4.1.1.1.534"
+            ],
+            "alerts": [
+                {
+                    "/\\S*InErrors/": {
+                        "greaterThan": 0,
+                        "integer": true,
+                        "severity": "ignore"
+                    },
+                    "/\\S*OutErrors/": {
+                        "greaterThan": 0,
+                        "integer": true,
+                        "severity": "ignore"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S1\\S2\\S1\\S2\\S47[0-1]/": {
+                        "equals": 2,
+                        "integer": true,
+                        "severity": "ignore",
+                        "desc": "PSU ok"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S4\\S1\\S1\\S1\\S534/": {
+                        "equals": 2,
+                        "integer": true,
+                        "severity": "ignore",
+                        "desc": "Fan present and operational"
+                    }
+                },
+                {
+                    "/\\S*linkError/": {
+                        "boolean": true,
+                        "equals": true,
+                        "severity": "warning"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21590/": {
+                        "greaterThan": 45,
+                        "integer": true,
+                        "severity": "warning",
+                        "desc": "Back temp sensor minor limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21591/": {
+                        "greaterThan": 57,
+                        "integer": true,
+                        "severity": "warning",
+                        "desc": "Front-middle temp sensor minor limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21592/": {
+                        "greaterThan": 52,
+                        "integer": true,
+                        "severity": "warning",
+                        "desc": "Front-right temp sensor minor limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21593/": {
+                        "greaterThan": 51,
+                        "integer": true,
+                        "severity": "warning",
+                        "desc": "Front-left temp sensor minor limit"
+                    }
+                },
+                {
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21590/": {
+                        "greaterThan": 70,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "Back temp sensor major limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21591/": {
+                        "greaterThan": 70,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "Front-middle temp sensor major limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21592/": {
+                        "greaterThan": 70,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "Front-right temp sensor major limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S91\\S1\\S1\\S1\\S1\\S4\\S21593/": {
+                        "greaterThan": 70,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "Front-left temp sensor major limit"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S1\\S2\\S1\\S2\\S47[0-1]/": {
+                        "equals": 5,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "PSU status fail/not powered-up"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S4\\S1\\S1\\S1\\S5((39)|(40))/": {
+                        "equals": 3,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "PSU fan failed"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S4\\S1\\S1\\S1\\S534/": {
+                        "equals": 3,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "One or more fans in tray failed"
+                    }
+                },
+                {
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S1\\S2\\S1\\S2\\S47[0-1]/": {
+                        "equals": 9,
+                        "integer": true,
+                        "severity": "critical",
+                        "desc": "PSU fan failed"
+                    }
+                },
+                {
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S1\\S2\\S1\\S2\\S47[0-1]/": {
+                        "contains": "No Such Instance",
+                        "severity": "warning",
+                        "desc": "PSU element is not present"
+                    },
+                    "/1\\S3\\S6\\S1\\S4\\S1\\S9\\S9\\S117\\S1\\S4\\S1\\S1\\S1\\S534/": {
+                        "contains": "No Such Instance",
+                        "severity": "warning",
+                        "desc": "Fan element is not present"
+                    }
+                }
+            ]
+        }
+    }
 }
