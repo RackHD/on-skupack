@@ -17,6 +17,9 @@ filename=<%= sku.nvramFirmware.filename %>
 curl --retry 3 <%=api.server%>/${filename} -o ${DOWNLOAD_DIR}/${filename##*/}
 md5=($(md5sum ${DOWNLOAD_DIR}/${filename##*/}))
 md5Expected="<%= sku.nvramFirmware.md5sum %>"
+
+#
+# convert string to lower case with ,,
 test ${md5,,} = ${md5Expected,,}
 FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
 
