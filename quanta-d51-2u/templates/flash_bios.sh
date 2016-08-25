@@ -36,7 +36,7 @@ pushd ${DOWNLOAD_DIR}
 #Snapshot the current image
 VERSION=`${CMD} /S | grep 'ROM ID' | awk -F= '{print $2}' | tr -d ' '`
 ${CMD} backup.bin /O
-curl -T ./${BACKUP_FILE} <%= api.files %>/<%= task.nodeId %>-${VERSION}
+curl -T ./${BACKUP_FILE} <%= api.files %>/<%= nodeId %>-${VERSION}
 
 # Flash new image
 ${CMD} <%= sku.biosFirmware.args %>
