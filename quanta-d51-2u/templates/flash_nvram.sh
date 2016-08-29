@@ -38,8 +38,8 @@ FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
 
 pushd ${DOWNLOAD_DIR}
 ${CMD} /o /s biosNvramSettingsBackup
-curl -T ./biosNvramSettingsBackup <%= api.files %>/<%= task.nodeId %>-biosNvramSettingsBackup
+curl -T ./biosNvramSettingsBackup <%= api.files %>/<%= nodeId %>-biosNvramSettingsBackup
 ${CMD} <%= sku.nvramFirmware.args %>
 ${CMD} /o /s biosNvramSettingsCurrent
-curl -T ./biosNvramSettingsCurrent <%= api.files %>/<%= task.nodeId %>-biosNvramSettingsCurrent
+curl -T ./biosNvramSettingsCurrent <%= api.files %>/<%= nodeId %>-biosNvramSettingsCurrent
 
