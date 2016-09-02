@@ -2,6 +2,7 @@
 
 ## BIOS firmware upgarde
 - The BIOS firmware files should be acquired from the vendor.  The BIOS image and BIOS upgrade executable are then extracted into the /static/bios location of the skupack and the config.json should be updated with the md5sum of the firmware image.
+- A valid BMC or BIOS firmware image should end with .bin, .BIN, .zip, .img or .ima, and only image path with bios/, bmc/ folder or without folder are supported. Other format of "file" value will be recognized as fault by schema validator.
 - The following vendor versions have been validated with this skupack
  1. S2S_3A14
  2. S2S_3A17
@@ -51,6 +52,7 @@ curl -X PUT -T file.img http://localhost:8080/api/current/files/file.img
 
 ## BMC firmware upgrade
 - The BMC firmware files should be acquired from the vendor.  The BMC image and BMC upgrade executable are then extracted into the /static/bmc location of the skupack and the config.json should be updated with the md5sum of the firmware image.
+- A valid BMC or BIOS firmware image should end with .bin, .BIN, .zip, .img or .ima, and only image path with bios/, bmc/ folder or without folder are supported. Other format of "file" value will be recognized as fault by schema validator.
 - The following vendor versions have been validated with this skupack
  1. 3.30
  2. 3.36
