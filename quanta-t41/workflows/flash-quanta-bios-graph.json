@@ -34,14 +34,14 @@
           "friendlyName": "Upgrade firmware images",
           "injectableName": "Task.Linux.Command.Upgrade.BIOS",
           "implementsTask": "Task.Base.Linux.Commands",
+          "schemaRef": "sku-firmware-update.json",
           "options": {
             "commands": [
               {
                 "command": "sudo ./flash_bios.sh",
                 "downloadUrl": "/api/1.1/templates/flash_bios.sh"
               }
-            ],
-            "file": null
+            ]
           },
           "properties": {}
         },
