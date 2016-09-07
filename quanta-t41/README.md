@@ -44,7 +44,8 @@ POST
 ```
 The file should be uploaded to the RackHD instance with the Files API before
 invoking the workflow and the "file" property should be set to the value of
-the resource name specified in the files URI
+the resource name specified in the files URI. It only works when the default
+API is 2.0 version, meaning no ''"versionBase": "1.1"'' specified in config file
 ```
 curl -X PUT -T file.img http://localhost:8080/api/current/files/file.img
 ```
@@ -93,7 +94,8 @@ POST
 ```
 The file should be uploaded to the RackHD instance with the Files API before
 invoking the workflow and the "file" property should be set to the value of
-the resource name specified in the files URI
+the resource name specified in the files URI. It only works when the default
+API is 2.0 version, meaning no ''"versionBase": "1.1"'' specified in config file
 ```
 curl -X PUT -T file.img http://localhost:8080/api/current/files/file.img
 ```

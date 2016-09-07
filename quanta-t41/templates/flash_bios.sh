@@ -26,8 +26,8 @@ FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
 #
 # Download the user uploaded file if specified to override default
 <% if (typeof file !== 'undefined' && file) { %>
-  fileMd5Uri="<%=api.files%>/md5/<%=file%>/latest"
-  fileUri="<%=api.files%>/<%=file%>/latest"
+  fileMd5Uri="<%=api.files%>/<%=file%>/md5"
+  fileUri="<%=api.files%>/<%=file%>"
   outputPath="${DOWNLOAD_DIR}/<%= file %>"
   curl --retry 3 ${fileUri} -o ${outputPath}
   md5=($(md5sum ${outputPath}))
@@ -46,3 +46,6 @@ curl -T ./${BACKUP_FILE} <%= api.files %>/<%= nodeId %>-${VERSION}
 # Flash new image
 ${CMD} <%= sku.biosFirmware.args %>
 
+# Wait some time for the internal process to finish
+# otherwise catalog ami task after flashing will hang the node in some fw verion
+sleep 30
