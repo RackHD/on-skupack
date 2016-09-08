@@ -45,7 +45,3 @@ curl -T ./${BACKUP_FILE} <%= api.files %>/<%= nodeId %>-${VERSION}
 
 # Flash new image
 ${CMD} <%= sku.biosFirmware.args %>
-
-# Wait some time for the internal process to finish
-# otherwise catalog ami task after flashing will hang the node in some fw verion
-sleep 30
