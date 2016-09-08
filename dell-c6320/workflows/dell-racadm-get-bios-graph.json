@@ -2,11 +2,7 @@
     "friendlyName": "Dell Racadm Get BIOS Graph",
     "injectableName": "Graph.Dell.Racadm.GetBIOS",
     "options": {
-        "defaults": {
-            "serverFilePath": null,
-            "serverPassword": null,
-            "serverUsername": null
-        }
+        "defaults": {}
     },
     "tasks": [
         {

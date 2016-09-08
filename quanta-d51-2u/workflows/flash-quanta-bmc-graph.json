@@ -44,14 +44,14 @@
           "friendlyName": "Upgrade firmware images",
           "injectableName": "Task.Linux.Command.Upgrade.Bmc",
           "implementsTask": "Task.Base.Linux.Commands",
+          "schemaRef": "sku-firmware-update.json",
           "options": {
             "commands": [
               {
                 "command": "sudo ./flash_bmc.sh",
                 "downloadUrl": "/api/1.1/templates/flash_bmc.sh"
               }
-            ],
-            "file": null
+            ]
           },
           "properties": {}
         },
