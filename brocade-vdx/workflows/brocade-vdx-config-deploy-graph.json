@@ -18,7 +18,7 @@
                     "startupConfigUri": "{{ api.base }}/templates/{{ options.startupConfig }}",
                     "commands": [
                         {
-                            "downloadUrl": "/api/1.1/templates/brocade-vdx-deploy-config.py"
+                            "downloadUrl": "/api/current/templates/brocade-vdx-deploy-config.py"
                         }
                     ]
                 },
