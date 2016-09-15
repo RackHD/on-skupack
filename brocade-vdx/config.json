@@ -1,0 +1,15 @@
+{
+     "name": "Brocade VDX SKU",
+     "rules": [
+         {
+             "regex": "Hardware Rev                  : 137.4",
+             "path": "version"
+         }
+     ],
+     "discoveryGraphName": "Graph.Switch.BrocadeVDX.Deploy",
+     "discoveryGraphOptions": {
+         "deploy-startup-config": {
+             "startupConfig": "brocade-vdx-config-sample"  
+         }
+     }
+}
