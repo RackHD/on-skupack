@@ -90,44 +90,46 @@ until [ $counter -le 0 ]; do
            echo "Check didn't pass, ip source wasn't set properly"
            exit 1;
         fi;
-        sleep 2
 
-        #IPMI tool command to set IP address
-        ipmitool lan set 1 ipaddr $ipaddrInfo
-        sleep 8
-        ipaddrCheck=$(ipmitool lan print)
-        ipaddrCheck=(${ipaddrCheck//$'\n'/ })
-        ipaddrCheck=${ipaddrCheck[59]}
-        echo "$ipaddrCheck"
-        if [ $ipaddrCheck != $ipaddrInfo ]; then
-           echo "Check didn't pass, ip address wasn't set properly"
-           exit 1;
-        fi;
-        sleep 2
+        if [ $ipsrcCheck != 'DHCP' ]; then
+            sleep 2
+            #IPMI tool command to set IP address
+            ipmitool lan set 1 ipaddr $ipaddrInfo
+            sleep 8
+            ipaddrCheck=$(ipmitool lan print)
+            ipaddrCheck=(${ipaddrCheck//$'\n'/ })
+            ipaddrCheck=${ipaddrCheck[59]}
+            echo "$ipaddrCheck"
+            if [ $ipaddrCheck != $ipaddrInfo ]; then
+                echo "Check didn't pass, ip address wasn't set properly"
+                exit 1;
+            fi;
+            sleep 2
 
-        #IPMI tool command to set net mask
-        ipmitool lan set 1 netmask $netMaskInfo
-        sleep 8
-        netmaskCheck=$(ipmitool lan print)
-        netmaskCheck=(${netmaskCheck//$'\n'/ })
-        netmaskCheck=${netmaskCheck[63]}
-        echo "$netmaskCheck"
-        if [ ${netmaskCheck} != ${netMaskInfo} ]; then
-           echo "Check didn't pass, netmask wasn't set properly"
-           exit 1;
-        fi;
+            #IPMI tool command to set net mask
+            ipmitool lan set 1 netmask $netMaskInfo
+            sleep 8
+            netmaskCheck=$(ipmitool lan print)
+            netmaskCheck=(${netmaskCheck//$'\n'/ })
+            netmaskCheck=${netmaskCheck[63]}
+            echo "$netmaskCheck"
+            if [ ${netmaskCheck} != ${netMaskInfo} ]; then
+                echo "Check didn't pass, netmask wasn't set properly"
+                exit 1;
+            fi;
 
-        #IPMI tool command to set default gateway address
-        ipmitool lan set 1 defgw ipaddr $defGatewayInfo
-        sleep 8
-        defgwCheck=$(ipmitool lan print)
-        defgwCheck=(${defgwCheck//$'\n'/ })
-        defgwCheck=${defgwCheck[100]}
-        echo "$defgwCheck"
-        if [ ${defgwCheck} != ${defGatewayInfo} ]; then
-           echo "Check didn't pass, default gateway wasn't set properly"
-           exit 1;
-        fi;
+            #IPMI tool command to set default gateway address
+            ipmitool lan set 1 defgw ipaddr $defGatewayInfo
+            sleep 8
+            defgwCheck=$(ipmitool lan print)
+            defgwCheck=(${defgwCheck//$'\n'/ })
+            defgwCheck=${defgwCheck[100]}
+            echo "$defgwCheck"
+            if [ ${defgwCheck} != ${defGatewayInfo} ]; then
+                echo "Check didn't pass, default gateway wasn't set properly"
+                exit 1;
+            fi;
+        fi
         exit 0
     fi
     sleep 1
