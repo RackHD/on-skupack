@@ -129,8 +129,8 @@ until [ $counter -le 0 ]; do
               echo "Check didn't pass, default gateway wasn't set properly"
               exit 1;
            fi;
-           exit 0
         fi
+        exit 0
     fi
     sleep 1
     let counter-=1
