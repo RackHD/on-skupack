@@ -72,13 +72,13 @@
                 {
                     "Sensor Type Code": "05",
                     "Event Type Code": "6f",
-                    "Event Data" : "/010000|020000|030000|040000|050000|060000/",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000|060000/",
                     "action" : "warning"
                 },
                 {
                     "Sensor Type Code": "06",
                     "Event Type Code": "6f",
-                    "Event Data" : "/010000|020000|030000|040000|050000/",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000/",
                     "action" : "warning"
                 },
                 {
@@ -210,7 +210,7 @@
                 {
                     "Sensor Type Code": "23",
                     "Event Type Code": "6f",
-                    "Event Data" : "/000000|010000|020000|030000|0400000|50000|060000|070000|080000/",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000|060000|070000|080000/",
                     "action" : "warning"
                 },
                 {
@@ -222,7 +222,7 @@
                 {
                     "Sensor Type Code": "28",
                     "Event Type Code": "6f",
-                    "Event Data" : "/000000|010000|020000|030000|0400000|50000/",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000/",
                     "action" : "warning"
                 },
                 {
@@ -240,19 +240,13 @@
                 {
                     "Sensor Type Code": "2a",
                     "Event Type Code": "6f",
-                    "Event Data" : "/000000|010000|020000|030000/",
+                    "Event Data" : "/020000|030000/",
                     "action" : "warning"
                 },
                 {
                     "Sensor Type Code": "2b",
                     "Event Type Code": "6f",
-                    "Event Data" : "/020000|030000|0400000|50000/",
-                    "action" : "warning"
-                },
-                {
-                    "Sensor Type Code": "2c",
-                    "Event Type Code": "6f",
-                    "Event Data" : "070000",
+                    "Event Data" : "/020000|030000|040000|50000/",
                     "action" : "warning"
                 },
                 {
