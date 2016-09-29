@@ -1,12 +1,12 @@
 {
     "package": {
         "name": "on-skupack",
-        "repo": "binary",
-        "subject": "rackhd"
+        "repo": "static-1.0.x-release",
+        "subject": "panpan0000"
     },
 
     "version": {
-        "name": "master"
+        "name": "$BINTRAY_USER"
     },
 
     "files":
