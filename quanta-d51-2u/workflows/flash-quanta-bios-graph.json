@@ -61,7 +61,8 @@
         "taskName": "Task.Evaluate.Condition",
         "waitOn": {
           "catalog-quanta-bios-after": "finished"
-        }
+        },
+        "ignoreFailure": true
       },
       {
         "label": "final-reboot",

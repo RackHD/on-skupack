@@ -52,7 +52,8 @@
         "taskName": "Task.Evaluate.Condition",
         "waitOn": {
           "upgrade-nvram-firmware": "finished"
-        }
+        },
+        "ignoreFailure": true
       },
       {
         "label": "final-reboot",
