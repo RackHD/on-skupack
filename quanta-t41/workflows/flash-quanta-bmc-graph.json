@@ -71,7 +71,8 @@
         "taskName": "Task.Evaluate.Condition",
         "waitOn": {
           "catalog-quanta-bmc-after": "finished"
-        }
+        },
+        "ignoreFailure": true
       },
       {
         "label": "final-reboot",
