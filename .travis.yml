@@ -1,6 +1,7 @@
 language: bash 
 sudo: true
 dist: trusty
+
 addons:
   apt:
     packages:
@@ -10,8 +11,10 @@ addons:
       - git
 
 before_deploy:
- - ./build-package.bash quanta-d51 "${TRAVIS_BRANCH}"
+ - ./build-package.bash quanta-d51-1u "${TRAVIS_BRANCH}"
+ - ./build-package.bash quanta-d51-2u "${TRAVIS_BRANCH}"
  - ./build-package.bash quanta-t41 "${TRAVIS_BRANCH}"
+ - ./gen_bintray_cfg.bash   "${TRAVIS_BRANCH}"
  - if [ ! -e deb ]; then mkdir deb && cp -a *.deb deb/; fi
 
 deploy:
@@ -20,13 +23,13 @@ deploy:
     user: $BINTRAY_USER
     key: $BINTRAY_KEY
     on:
-      branch: master
+        all_branches: true
   - provider: bintray
     file: .bintray-gen.json
     user: $BINTRAY_USER
     key: $BINTRAY_KEY
     on:
-      branch: master
+        all_branches: true
 
 notifications:
   slack:
