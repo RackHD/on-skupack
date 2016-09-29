@@ -1,12 +1,12 @@
 {
     "package": {
-        "name": "packages",
-        "repo": "debian",
-        "subject": "rackhd"
+        "name": "on-skupack",
+        "repo": "rackhd-trial-1.0.x-release",
+        "subject": "panpan0000"
     },
 
     "version": {
-        "name": "master"
+        "name": "1.0.1"
     },
 
     "files":
