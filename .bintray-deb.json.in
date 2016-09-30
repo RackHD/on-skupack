@@ -1,12 +1,14 @@
 {
     "package": {
         "name": "on-skupack",
-        "repo": "rackhd-trial-$DEBBRANCH",
-        "subject": "panpan0000"
+        "repo": "#REPO_NAME#",
+        "subject": "panpan0000",
+        "vcs_url": "https://github.com/RackHD/on-skupack.git",
+        "licenses": ["Apache-2.0"]
     },
 
     "version": {
-        "name": "$DEBPKGVER"
+        "name": "#REVISION#"
     },
 
     "files":
