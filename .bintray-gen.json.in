@@ -1,7 +1,7 @@
 {
     "package": {
         "name": "on-skupack",
-        "repo": "#REPO_NAME#",
+        "repo": "#STATIC_REPO_NAME#",
         "subject": "panpan0000",
         "vcs_url": "https://github.com/RackHD/on-skupack.git",
         "licenses": ["Apache-2.0"]

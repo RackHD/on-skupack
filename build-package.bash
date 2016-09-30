@@ -64,6 +64,6 @@ dch -l "${DEBPKGVER}" -u low "${DEBCOMMIT}"
 debuild --no-lintian --no-tgz-check -us -uc
 popd
 
-mkdir -p tarballs && mv packagebuild/${SKU_DIR}.tar.gz tarballs/${SKU_DIR}_${DEBPKGVER}.tar.gz
+mkdir -p tarballs && mv packagebuild/${SKU_DIR}.tar.gz tarballs/${SKU_DIR}${DEBPKGVER}.tar.gz
 
 ls -l .

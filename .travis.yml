@@ -2,9 +2,6 @@ language: bash
 sudo: true
 dist: trusty
 
-#env:
-#  matrix:
-#      - DEBPKGVER="master"
 addons:
   apt:
     packages:
@@ -17,8 +14,7 @@ before_deploy:
  - ./build-package.bash quanta-d51-1u "${TRAVIS_BRANCH}"
  - ./build-package.bash quanta-d51-2u "${TRAVIS_BRANCH}"
  - ./build-package.bash quanta-t41 "${TRAVIS_BRANCH}"
- - env | grep TRAVIS
- - ./gen_bintray_cfg.bash
+ - ./gen_bintray_cfg.bash   "${TRAVIS_BRANCH}"
  - if [ ! -e deb ]; then mkdir deb && cp -a *.deb deb/; fi
 
 deploy:
