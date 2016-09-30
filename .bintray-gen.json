@@ -1,12 +1,12 @@
 {
     "package": {
         "name": "on-skupack",
-        "repo": "static-1.0.x-release",
+        "repo": "static-$DEBBRANCH",
         "subject": "panpan0000"
     },
 
     "version": {
-        "name": "$BINTRAY_USER"
+        "name": "$DEBPKGVER"
     },
 
     "files":

@@ -1,12 +1,12 @@
 {
     "package": {
         "name": "on-skupack",
-        "repo": "rackhd-trial-1.0.x-release",
+        "repo": "rackhd-trial-$DEBBRANCH",
         "subject": "panpan0000"
     },
 
     "version": {
-        "name": "1.5.1"
+        "name": "$DEBPKGVER"
     },
 
     "files":
