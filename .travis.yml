@@ -27,13 +27,13 @@ deploy:
     user: $BINTRAY_USER
     key: $BINTRAY_KEY
     on:
-      branch: master
+        branch: release-2.1.x
   - provider: bintray
     file: .bintray-gen.json
     user: $BINTRAY_USER
     key: $BINTRAY_KEY
     on:
-      branch: master
+        branch: release-2.1.x
 
 #notifications:
 #  slack:
