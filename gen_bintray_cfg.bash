@@ -26,7 +26,7 @@ fi
 #     branch +   last-commit-date + last-commit-hash
 #
 ##################################################################
-REPO_COMMIT_DATE=`git log -1 --pretty=format:%ai  |awk '{print $1}' `
+REPO_COMMIT_DATE=`git log -1 --pretty=format:%ci  |awk '{print $1}' `
 REPO_COMMIT_HASH=`git log -1 --pretty=format:%h `
 REPO_PKGVER=${BRANCH}-${REPO_COMMIT_DATE}-${REPO_COMMIT_HASH}
 
