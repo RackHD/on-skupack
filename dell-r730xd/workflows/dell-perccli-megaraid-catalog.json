@@ -3,7 +3,7 @@
     "injectableName": "Graph.Dell.perccli.Catalog",
     "options": {
         "bootstrap-ubuntu": {
-            "overlayfs": "common/dell.raid.overlay.cpio.gz"
+            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz"
         }
     },
     "tasks": [
