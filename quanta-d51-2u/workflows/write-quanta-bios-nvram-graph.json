@@ -37,7 +37,7 @@
             "commands": [
               {
                 "command": "sudo ./flash_nvram.sh",
-                "downloadUrl": "/api/1.1/templates/flash_nvram.sh"
+                "downloadUrl": "/api/current/templates/flash_nvram.sh"
               }
             ]
           },

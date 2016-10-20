@@ -49,7 +49,7 @@
             "commands": [
               {
                 "command": "sudo ./flash_bmc.sh",
-                "downloadUrl": "/api/1.1/templates/flash_bmc.sh"
+                "downloadUrl": "/api/current/templates/flash_bmc.sh"
               }
             ]
           },

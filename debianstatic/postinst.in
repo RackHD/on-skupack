@@ -1,7 +1,7 @@
 #!/bin/bash
 FILE=/var/renasar/on-http/.skupack/{{name}}.tar.gz
 SKUFILE=/var/renasar/on-http/.skupack/{{name}}.sku
-CODE=`curl -s -X POST --data-binary @${FILE} -o ${SKUFILE} -w '%{http_code}' localhost:8080/api/common/skus/pack`
+CODE=`curl -s -X POST --data-binary @${FILE} -o ${SKUFILE} -w '%{http_code}' localhost:8080/api/current/skus/pack`
 if [ ${CODE} == 201 ]; then
   echo SKU Pack registered as SKU: ${SKUID}
   rm -f ${FILE}

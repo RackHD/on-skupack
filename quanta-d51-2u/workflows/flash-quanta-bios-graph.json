@@ -39,7 +39,7 @@
             "commands": [
               {
                 "command": "sudo ./flash_bios.sh",
-                "downloadUrl": "/api/1.1/templates/flash_bios.sh"
+                "downloadUrl": "/api/current/templates/flash_bios.sh"
               }
             ]
           },
