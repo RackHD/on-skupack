@@ -11,7 +11,7 @@
 **Run a BIOS upgrade against a node**
 ```
 POST
-/api/1.1/nodes/<id>/workflows
+/api/current/nodes/<id>/workflows
 {
     "name": "Graph.Flash.Quanta.BIOS"
 }
@@ -20,7 +20,7 @@ POST
 **Run a BIOS upgrade against a node without rebooting at the end**
 ```
 POST
-/api/1.1/nodes/<id>/workflows
+/api/current/nodes/<id>/workflows
 {
     "name": "Graph.Flash.Quanta.BIOS"
     "options": {
@@ -33,7 +33,7 @@ POST
 **Run a BIOS upgrade against a node with a file override**
 ```
 POST
-/api/1.1/nodes/<id>/workflows
+/api/current/nodes/<id>/workflows
 {
     "name": "Graph.Flash.Quanta.BIOS"
     "options": {
@@ -62,7 +62,7 @@ curl -X PUT -T file.img http://localhost:8080/api/current/files/file.img
  **Run a BMC upgrade against a node**
 ```
 POST
-/api/1.1/nodes/<id>/workflows
+/api/current/nodes/<id>/workflows
 {
     "name": "Graph.Flash.Quanta.Bmc"
 }
@@ -71,7 +71,7 @@ POST
 **Run a BMC upgrade against a node without rebooting at the end**
 ```
 POST
-/api/1.1/nodes/<id>/workflows
+/api/current/nodes/<id>/workflows
 {
     "name": "Graph.Flash.Quanta.Bmc"
     "options": {
@@ -84,7 +84,7 @@ POST
 **Run a BMC upgrade against a node with a file override**
 ```
 POST
-/api/1.1/nodes/<id>/workflows
+/api/current/nodes/<id>/workflows
 {
     "name": "Graph.Flash.Quanta.Bmc"
     "options": {

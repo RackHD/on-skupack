@@ -16,7 +16,7 @@
                 "options": {
                     "commands": [
                         {
-                            "downloadUrl": "/api/1.1/templates/arista-catalog-ip.py",
+                            "downloadUrl": "/api/current/templates/arista-catalog-ip.py",
                             "catalog": { "format": "json", "source": "ip" }
                         }
                     ]
@@ -56,7 +56,7 @@
                     "switchIp": "{{ context.ip.internetAddress }}",
                     "commands": [
                         {
-                            "downloadUrl": "/api/1.1/templates/arista-deploy-startup-config.py"
+                            "downloadUrl": "/api/current/templates/arista-deploy-startup-config.py"
                         }
                     ]
                 },
