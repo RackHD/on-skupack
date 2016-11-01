@@ -1,9 +1,15 @@
 {
-    "name": "Brocade VDX 6740",
-    "rules": [
-        {
-            "path": "snmp-1.ENTITY-MIB::entPhysicalDescr_1",
-            "equals": "VDX6740"
-        }
-    ]
+     "name": "Brocade VDX SKU",
+     "rules": [
+         {
+             "regex": "Hardware Rev                  : 131.7",
+             "path": "version"
+         }
+     ],
+     "discoveryGraphName": "Graph.Switch.BrocadeVDX.Deploy",
+     "discoveryGraphOptions": {
+         "deploy-startup-config": {
+             "startupConfig": "brocade-vdx-config-sample"  
+         }
+     }
 }
