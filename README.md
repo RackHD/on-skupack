@@ -13,7 +13,7 @@ Maintain SKU specific package content such as templates and other static files.
 
 * Build SKU package
 
-  * Create sku pack with SKU build-package tool and on the root folder of on-skupack run:
+  * On the root directory of on-skupack repo run:
 
   ```
   $ ./build-package.bash <sku_pack_directory> <subname>
@@ -25,7 +25,7 @@ Maintain SKU specific package content such as templates and other static files.
   
   ```
   $ ./build-package.bash quanta-t41 master
-  Note: After running this command, quanta-t41_master.tar.gz could be found at the tarballs folder under the on-skupack root folder.
+  Note: After running this command, quanta-t41_master.tar.gz could be found at the tarballs folder which is under the root directory of on-skupack repo.
   ```
   
 * Register a new SKU with the package
