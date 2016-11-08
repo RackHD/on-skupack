@@ -1,0 +1,5 @@
+switch-attributes 12
+ chassis-name VDX6740
+ host-name testsw0
+!
+interface vlan 3-10

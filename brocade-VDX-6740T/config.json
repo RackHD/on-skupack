@@ -2,7 +2,7 @@
      "name": "Brocade VDX SKU",
      "rules": [
          {
-             "regex": "Hardware Rev                  : 137.4",
+             "regex": "Hardware Rev\s*: 137\.4",
              "path": "version"
          }
      ],
