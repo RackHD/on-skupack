@@ -37,7 +37,7 @@
             "commands": [
               {
                 "command": "sudo ./flash_nvram.sh",
-                "downloadUrl": "/api/current/templates/flash_nvram.sh"
+                "downloadUrl": "{{ api.templates }}/flash_nvram.sh?nodeId={{ task.nodeId }}"
               }
             ]
           },

@@ -49,7 +49,7 @@
             "commands": [
               {
                 "command": "sudo ./flash_bmc.sh",
-                "downloadUrl": "/api/current/templates/flash_bmc.sh"
+                "downloadUrl": "{{ api.templates }}/flash_bmc.sh?nodeId={{ task.nodeId }}"
               }
             ]
           },

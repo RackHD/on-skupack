@@ -39,7 +39,7 @@
             "commands": [
               {
                 "command": "sudo ./flash_bios.sh",
-                "downloadUrl": "/api/current/templates/flash_bios.sh"
+                "downloadUrl": "{{ api.templates }}/flash_bios.sh?nodeId={{ task.nodeId }}"
               }
             ]
           },
