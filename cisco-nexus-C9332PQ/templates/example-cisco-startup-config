@@ -6,3 +6,4 @@ snmp-server community rackhd group network-admin
 
 feature telnet
 feature bash-shell
+feature nxapi
