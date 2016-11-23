@@ -29,8 +29,7 @@ def deploy_startup_config():
     poap_log("Copying {0} to {1}".format(startup_config_uri, tmp_config_path))
     cli("copy %s %s vrf management" % (startup_config_uri, tmp_config_path))
     poap_log("Copying {0} to running-config".format(tmp_config_path))
-    output = cli("copy %s running-config" % tmp_config_path)
-    poap_log("Heyyyy Im here: %s" % output)
+    cli("copy %s running-config" % tmp_config_path)
     poap_log("deploy_startup_config finished")
 
 def deploy_boot_images():
