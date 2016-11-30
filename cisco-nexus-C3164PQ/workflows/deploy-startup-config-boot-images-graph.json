@@ -25,7 +25,7 @@
                     "bootImageUri": "{{ api.server }}/{{ options.staticDir }}/{{ options.bootImage }}",
                     "commands": [
                         {
-                            "downloadUrl": "/api/2.0/templates/cisco-deploy-config-and-images.py"
+                            "downloadUrl": "{{ api.templates }}/cisco-deploy-config-and-images.py?nodeId={{ task.nodeId }}"
                         }
                     ]
                 },
@@ -41,7 +41,7 @@
                 "options": {
                     "commands": [
                         {
-                            "downloadUrl": "/api/2.0/templates/cisco-catalog-config.py",
+                            "downloadUrl": "{{ api.templates }}/cisco-catalog-config.py?nodeId={{ task.nodeId }}",
                             "catalog": { "format": "json", "source": "config" }
                         }
                     ]

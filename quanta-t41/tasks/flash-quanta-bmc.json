@@ -7,7 +7,7 @@
       "downloadDir": "/opt/downloads",
       "commands": [
         "sudo /opt/socflash/socflash_x64 -b /opt/uploads/bmc-backup.bin",
-        "sudo curl -T /opt/uploads/bmc-backup.bin {{ api.files }}/{{ nodeId }}-bmc-backup.bin",
+        "sudo curl -T /opt/uploads/bmc-backup.bin {{ api.files }}/{{ task.nodeId }}-bmc-backup.bin",
         "sudo /opt/socflash/socflash_x64 -s option=x flashtype=2 if={{ options.downloadDir }}/{{ options.file }}"
       ]
     },
