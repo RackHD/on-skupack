@@ -1,0 +1,23 @@
+{
+    "name": "Dell R740",
+    "rules": [
+        {
+            "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Mfg",
+            "contains": "DELL"
+        },
+        {
+            "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Part Number",
+            "contains": "06G98XX08"
+        }
+    ],
+    "skuConfig" : {
+        "redfish" : {
+            "computeType": "Rackmount"
+        },
+        "bmcMac": "bmc.data.MAC Address"
+    },
+    "workflowRoot": "workflows",
+    "discoveryGraphName": "Graph.Dell.Discovery",
+    "discoveryGraphOptions": {}
+}
+
