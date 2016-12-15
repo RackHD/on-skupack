@@ -1,0 +1,29 @@
+{
+    "friendlyName": "Dell Discovery",
+    "injectableName": "Graph.Dell.Discovery",
+    "options": {
+        "bootstrap-ubuntu": {
+            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz"
+        }
+    },
+    "tasks": [
+        {
+            "label": "bootstrap-ubuntu",
+            "taskName": "Task.Linux.Bootstrap.Ubuntu"
+        },
+        {
+            "label": "catalog-perccli",
+            "taskName": "Task.Catalog.perccli",
+            "waitOn": {
+                "bootstrap-ubuntu": "succeeded"
+            }
+        },
+        {
+            "label": "shell-reboot",
+            "taskName": "Task.ProcShellReboot",
+            "waitOn": {
+                "catalog-perccli": "finished"
+            }
+        }
+    ]
+}
