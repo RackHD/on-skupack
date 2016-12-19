@@ -14,7 +14,233 @@
         "redfish" : {
             "computeType": "Rackmount"
         },
-        "bmcMac": "bmc.data.MAC Address"
+        "bmcMac": "bmc.data.MAC Address",
+        "sel": {
+            "alerts": [
+                {
+                    "Event Type Code": "01",
+                    "Description" : "/.+Non-critical going.+/",
+                    "action" : "warning"
+                },
+                {
+                    "Event Type Code": "01",
+                    "Description" : "/(.+Critical going.+)|(Lower Non-recoverable going low)|(Upper Non-recoverable going high)/",
+                    "action" : "critical"
+                },
+                {
+                    "Event Type Code": "07",
+                    "Event Data" : "/010000|040000/",
+                    "action" : "warning"
+                },
+                {
+                    "Event Type Code": "07",
+                    "Event Data" : "/020000|030000|050000|060000/",
+                    "action" : "critical"
+                },
+                {
+                    "Event Type Code": "0b",
+                    "Event Data" : "/010000|020000|030000|040000|060000|070000/",
+                    "action" : "warning"
+                },
+                {
+                    "Event Type Code": "0b",
+                    "Event Data" : "050000",
+                    "action" : "crtical"
+                },
+                {
+                    "Sensor Type Code": "05",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000|060000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "06",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "07",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/050000|080000|0a0000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "07",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000|060000|0b0000/",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "08",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/020000|030000|040000|050000|060000|070000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "08",
+                    "Event Type Code": "6f",
+                    "Event Data" : "010000",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "0c",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/020000|030000|040000|070000|090000|0a0000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "0c",
+                    "Event Type Code": "6f",
+                    "Event Data" : "010000",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "0d",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/020000|080000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "0d",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/010000|050000|060000/",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "0f",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000/",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "11",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000|060000|070000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "12",
+                    "Event Type Code": "6f",
+                    "Event Data" : "040000",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "12",
+                    "Event Type Code": "6f",
+                    "Event Data" : "020000",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "13",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|070000|0b0000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "13",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/010000|020000|030000|040000|050000|060000|080000|090000|0a0000/",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "14",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|020000|010000|030000|040000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "19",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000/",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "1b",
+                    "Event Type Code": "6f",
+                    "Event Data" : "010000",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "1e",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "1f",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/090000|0a0000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "20",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|040000|050000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "21",
+                    "Event Type Code": "6f",
+                    "Event Data" : "000000",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "23",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000|060000|070000|080000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "27",
+                    "Event Type Code": "6f",
+                    "Event Data" : "000000",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "28",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/000000|010000|020000|030000|040000|050000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "29",
+                    "Event Type Code": "6f",
+                    "Event Data" : "000000",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "29",
+                    "Event Type Code": "6f",
+                    "Event Data" : "010000",
+                    "action" : "critical"
+                },
+                {
+                    "Sensor Type Code": "2a",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/020000|030000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "2b",
+                    "Event Type Code": "6f",
+                    "Event Data" : "/020000|030000|040000|50000/",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type Code": "2c",
+                    "Event Type Code": "6f",
+                    "Event Data" : "070000",
+                    "action" : "warning"
+                },
+                {
+                    "Sensor Type": "Event Logging Disabled",
+                    "Description": "Log full",
+                    "Event Direction" : "Assertion Event",
+                    "action" : "warning"
+                }
+            ]
+        }
     },
     "workflowRoot": "workflows",
     "discoveryGraphName": "Graph.Dell.Discovery",
