@@ -4,7 +4,6 @@
     "options": {
         "deploy-config-and-images": {
             "startupConfig": null,
-            "kickstartImage": null,
             "bootImage": null
         }
     },
@@ -18,14 +17,12 @@
                 "options": {
                     "startupConfig": null,
                     "startupConfigUri": "{{ api.base }}/templates/{{ options.startupConfig }}",
-                    "kickstartImage": null,
                     "bootImage": null,
                     "staticDir": "cisco",
-                    "kickstartUri": "{{ api.server }}/{{ options.staticDir }}/{{ options.kickstartImage }}",
                     "bootImageUri": "{{ api.server }}/{{ options.staticDir }}/{{ options.bootImage }}",
                     "commands": [
                         {
-                            "downloadUrl": "{{ api.templates }}/cisco-deploy-config-and-images.py?nodeId={{ task.nodeId }}"
+                            "downloadUrl": "{{ api.templates }}/ciscoNexus-deploy-config-and-images.py?nodeId={{ task.nodeId }}"
                         }
                     ]
                 },
