@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/bash -ex
+
 DEBDIR="./debianstatic"
+DEBNAME=${1,,}
 BRANCH=${2}
-set -x
 
 if [ ! -d "${DEBDIR}" ]; then 
     echo "no such debian directory ${DEBDIR}"
@@ -21,14 +22,14 @@ export DEBBRANCH=`echo "${BRANCH}" | sed 's/[\/\_]/-/g'`
 export DEBPKGVER=`git log -1 --pretty=oneline --abbrev-commit ${1}`
 
 pushd ${1}
-tar czf ../packagebuild/${1}.tar.gz *
+tar czf ../packagebuild/${DEBNAME}.tar.gz *
 popd
 
 pushd packagebuild
 rsync -ar ../${DEBDIR}/ debian/
 
 cat > /tmp/sed.script << EOF
-s%{{name}}%${1}%
+s%{{name}}%${DEBNAME}%
 EOF
 
 find . -type f -iname "*.in" -print0 | while IFS= read -r -d $'\0' file; do
@@ -42,6 +43,6 @@ dch -l "${DEBBRANCH}" -u low "${DEBPKGVER}"
 debuild --no-lintian --no-tgz-check -us -uc
 popd
 
-mkdir -p tarballs && mv packagebuild/${1}.tar.gz tarballs/${1}_${DEBBRANCH}.tar.gz
+mkdir -p tarballs && mv packagebuild/${DEBNAME}.tar.gz tarballs/${1}_${DEBBRANCH}.tar.gz
 
 ls -l .
