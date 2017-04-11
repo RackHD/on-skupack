@@ -10,7 +10,7 @@ addons:
       - git
 
 before_deploy:
- - ./build-package.bash quanta-d51 "${TRAVIS_BRANCH}"
+ - ./build-package.bash quanta-d51-1u "${TRAVIS_BRANCH}"
  - ./build-package.bash quanta-t41 "${TRAVIS_BRANCH}"
  - if [ ! -e deb ]; then mkdir deb && cp -a *.deb deb/; fi
 
