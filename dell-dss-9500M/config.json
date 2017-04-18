@@ -1,0 +1,16 @@
+{
+  "name": "Dell DSS 9500M",
+  "rules": [
+    {
+      "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Mfg",
+      "contains": "DELL"
+    },
+    {
+      "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Part Number",
+      "contains": "0G50D4A00"
+    }
+  ],
+  "workflowRoot": "workflows",
+  "discoveryGraphOptions": {}
+}
+
