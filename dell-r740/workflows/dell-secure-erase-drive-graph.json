@@ -98,7 +98,7 @@
             "label": "finish-bootstrap-trigger",
             "taskName": "Task.Trigger.Send.Finish",
             "waitOn": {
-                "catalog-driveid": "finished"
+                "catalog-driveid-after": "finished"
             }
         }
     ]
