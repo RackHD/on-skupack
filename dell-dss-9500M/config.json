@@ -7,7 +7,7 @@
     },
     {
       "path": "ipmi-fru.Builtin FRU Device (ID 0).Board Part Number",
-      "contains": "0G50D4A00"
+      "contains": "0G50D4"
     }
   ],
   "workflowRoot": "workflows",
