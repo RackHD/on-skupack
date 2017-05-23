@@ -255,7 +255,6 @@
         }
     },
     "workflowRoot": "workflows",
-    "taskRoot": "tasks",
     "httpTemplateRoot": "templates",
     "httpStaticRoot": "static"
 }

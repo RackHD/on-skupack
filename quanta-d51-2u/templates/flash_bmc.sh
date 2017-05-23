@@ -18,14 +18,15 @@ test ${md5,,} = ${md5Expected,,}
 FLASH_FILE=${DOWNLOAD_DIR}/${filename##*/}
 
 #
-# Download the user uploaded file if specified to override default
-<% if (typeof file !== 'undefined' && file) { %>
-  fileMd5Uri="<%=api.files%>/<%=file%>/md5"
-  fileUri="<%=api.files%>/<%=file%>"
-  outputPath="${DOWNLOAD_DIR}/<%= file %>"
+# Download the user uploaded image file if specified to override default
+<% if (typeof imageFile !== 'undefined' && imageFile) { %>
+  fileMd5Uri="<%=api.files%>/<%=imageFile%>/md5"
+  fileUri="<%=api.files%>/<%=imageFile%>"
+  outputPath="${DOWNLOAD_DIR}/<%= imageFile %>"
   curl --retry 3 ${fileUri} -o ${outputPath}
   md5=($(md5sum ${outputPath}))
   md5Expected=`curl ${fileMd5Uri}`
+  md5Expected=`sed -e 's/^"//' -e 's/"$//' <<< "$md5Expected"`
   test ${md5Expected,,} = ${md5,,}
   FLASH_FILE=${outputPath}
 <% } %>
