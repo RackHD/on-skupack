@@ -21,7 +21,7 @@ POST
 POST
 /api/current/nodes/<id>/workflows
 {
-    "name": "Graph.Flash.Quanta.BIOS"
+    "name": "Graph.Flash.Quanta.BIOS",
     "options": {
         "when-reboot-at-end": {
             "rebootAtEnd": "false"
@@ -29,21 +29,21 @@ POST
     }
 }
 ```
-**Run a BIOS upgrade against a node with a file override**
+**Run a BIOS upgrade against a node with an image file override**
 ```
 POST
 /api/current/nodes/<id>/workflows
 {
-    "name": "Graph.Flash.Quanta.BIOS"
+    "name": "Graph.Flash.Quanta.BIOS",
     "options": {
         "upgrade-bios-firmware": {
-            "file": "file.img"
+            "imageFile": "file.img"
         }
     }
 }
 ```
-The file should be uploaded to the RackHD instance with the Files API before
-invoking the workflow and the "file" property should be set to the value of
+The image file should be uploaded to the RackHD instance with the Files API before
+invoking the workflow and the "imageFile" property should be set to the value of
 the resource name specified in the files URI. It only works when the default
 API is 2.0 version, meaning no ''"versionBase": "1.1"'' specified in config file
 ```
@@ -70,7 +70,7 @@ POST
 POST
 /api/current/nodes/<id>/workflows
 {
-    "name": "Graph.Flash.Quanta.Bmc"
+    "name": "Graph.Flash.Quanta.Bmc",
     "options": {
         "when-reboot-at-end": {
             "rebootAtEnd": "false"
@@ -78,21 +78,21 @@ POST
     }
 }
 ```
-**Run a BMC upgrade against a node with a file override**
+**Run a BMC upgrade against a node with an image file override**
 ```
 POST
 /api/current/nodes/<id>/workflows
 {
-    "name": "Graph.Flash.Quanta.Bmc"
+    "name": "Graph.Flash.Quanta.Bmc",
     "options": {
         "upgrade-bmc-firmware": {
-            "file": "file.img"
+            "imageFile": "file.img"
         }
     }
 }
 ```
-The file should be uploaded to the RackHD instance with the Files API before
-invoking the workflow and the "file" property should be set to the value of
+The image file should be uploaded to the RackHD instance with the Files API before
+invoking the workflow and the "imageFile" property should be set to the value of
 the resource name specified in the files URI. It only works when the default
 API is 2.0 version, meaning no ''"versionBase": "1.1"'' specified in config file
 ```
