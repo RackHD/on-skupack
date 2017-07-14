@@ -34,7 +34,7 @@
           "friendlyName": "Upgrade firmware images",
           "injectableName": "Task.Linux.Command.Upgrade.BIOS",
           "implementsTask": "Task.Base.Linux.Commands",
-          "schemaRef": "sku-firmware-update.json", 
+          "optionsSchema": "sku-firmware-update.json",
           "options": {
             "commands": [
               {
