@@ -3,10 +3,16 @@
     "injectableName": "Graph.Raid.Delete.Perccli",
     "options": {
         "bootstrap-ubuntu": {
-            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz"
+            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz",
+            "triggerGroup": "bootstrap"
+        },
+        "finish-bootstrap-trigger": {
+            "triggerGroup": "bootstrap"
         },
         "delete-raid": {
-            "path": "/opt/MegaRAID/perccli/perccli64"
+            "path": "/opt/MegaRAID/perccli/perccli64",
+            "deleteAll": true,
+            "raidIds": [0]
         }
     },
     "tasks": [
@@ -33,10 +39,11 @@
             "label": "delete-raid",
             "taskName": "Task.Raid.Delete.MegaRAID",
             "waitOn": {
-                "bootstrap-ubuntu": "succeeded"
+                "reboot": "succeeded"
             }
         },
         {
+            "ignoreFailure": true,
             "label": "refresh-catalog-megaraid",
             "taskName": "Task.Catalog.perccli",
             "waitOn": {
@@ -44,10 +51,24 @@
             }
         },
         {
+            "label": "refresh-catalog-driveid",
+            "taskName": "Task.Catalog.Drive.Id",
+            "waitOn": {
+                "refresh-catalog-megaraid": "succeeded"
+            }
+        },
+        {
+            "label": "finish-bootstrap-trigger",
+            "taskName": "Task.Trigger.Send.Finish",
+            "waitOn": {
+                "final-reboot": "finished"
+            }
+        },
+        {
             "label": "final-reboot",
             "taskName": "Task.Obm.Node.Reboot",
             "waitOn": {
-                "refresh-catalog-megaraid": "finished"
+                "refresh-catalog-driveid": "succeeded"
             }
         }
     ]
