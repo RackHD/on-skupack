@@ -1,4 +1,3 @@
-root@kcps-rackhd01:/home/wangzz/on-skupack/dell-r730/workflows# cat dell-perccli-create-megaraid-graph.json
 {
     "friendlyName": "Create RAID via perccli",
     "injectableName": "Graph.Raid.Create.Perccli",
