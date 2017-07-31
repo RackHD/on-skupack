@@ -12,22 +12,7 @@ root@kcps-rackhd01:/home/wangzz/on-skupack/dell-r730/workflows# cat dell-perccli
         },
         "create-raid": {
             "path": "/opt/MegaRAID/perccli/perccli64",
-            "createDefault": true,
-            "raidList":
-            [
-              {
-                "enclosure": 32,
-                "type": "raid0",
-                "drives": [0],
-                "name": "vd1"
-              },
-              {
-                "enclosure": 32,
-                "type": "raid0",
-                "drives": [1],
-                "name": "vd2"
-              }
-            ]
+            "createDefault": true
         }
     },
     "tasks": [

@@ -11,8 +11,7 @@
         },
         "delete-raid": {
             "path": "/opt/MegaRAID/perccli/perccli64",
-            "deleteAll": true,
-            "raidIds": [0]
+            "deleteAll": true
         }
     },
     "tasks": [
