@@ -57,17 +57,17 @@
             }
         },
         {
-            "label": "finish-bootstrap-trigger",
-            "taskName": "Task.Trigger.Send.Finish",
-            "waitOn": {
-                "final-reboot": "finished"
-            }
-        },
-        {
             "label": "final-reboot",
             "taskName": "Task.Obm.Node.Reboot",
             "waitOn": {
                 "refresh-catalog-driveid": "succeeded"
+            }
+        },
+        {
+            "label": "finish-bootstrap-trigger",
+            "taskName": "Task.Trigger.Send.Finish",
+            "waitOn": {
+                "final-reboot": "finished"
             }
         }
     ]
