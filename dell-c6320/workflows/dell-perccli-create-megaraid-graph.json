@@ -3,10 +3,15 @@
     "injectableName": "Graph.Raid.Create.Perccli",
     "options": {
         "bootstrap-ubuntu": {
-            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz"
+            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz",
+            "triggerGroup": "bootstrap"
+        },
+        "finish-bootstrap-trigger":{
+            "triggerGroup": "bootstrap"
         },
         "create-raid": {
-            "path": "/opt/MegaRAID/perccli/perccli64"
+            "path": "/opt/MegaRAID/perccli/perccli64",
+            "createDefault": true
         }
     },
     "tasks": [
@@ -33,7 +38,7 @@
             "label": "create-raid",
             "taskName": "Task.Raid.Create.MegaRAID",
             "waitOn": {
-                "bootstrap-ubuntu": "succeeded"
+                "reboot": "succeeded"
             }
         },
         {
@@ -44,10 +49,24 @@
             }
         },
         {
+            "label": "refresh-catalog-driveid",
+            "taskName": "Task.Catalog.Drive.Id",
+            "waitOn": {
+                "refresh-catalog-megaraid": "succeeded"
+            }
+        },
+        {
             "label": "final-reboot",
             "taskName": "Task.Obm.Node.Reboot",
             "waitOn": {
-                "refresh-catalog-megaraid": "finished"
+                "refresh-catalog-driveid": "succeeded"
+            }
+        },
+        {
+            "label": "finish-bootstrap-trigger",
+            "taskName": "Task.Trigger.Send.Finish",
+            "waitOn": {
+                "final-reboot": "finished"
             }
         }
     ]
