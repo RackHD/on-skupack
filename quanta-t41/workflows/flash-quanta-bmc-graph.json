@@ -44,7 +44,6 @@
           "friendlyName": "Upgrade firmware images",
           "injectableName": "Task.Linux.Command.Upgrade.Bmc",
           "implementsTask": "Task.Base.Linux.Commands",
-          "optionsSchema": "sku-firmware-update.json",
           "options": {
             "commands": [
               {
