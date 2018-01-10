@@ -21,8 +21,8 @@
         }
       },
       {
-        "label": "bootstrap-ubuntu",
-        "taskName": "Task.Linux.Bootstrap.Ubuntu",
+        "label": "bootstrap-rancher",
+        "taskName": "Task.Linux.Bootstrap.Rancher",
         "waitOn": {
           "reboot": "succeeded"
         }
@@ -45,7 +45,7 @@
           "properties": {}
         },
         "waitOn": {
-          "bootstrap-ubuntu": "succeeded"
+          "bootstrap-rancher": "succeeded"
         }
       },
       {
