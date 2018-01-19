@@ -2,8 +2,8 @@
     "friendlyName": "Create RAID via perccli",
     "injectableName": "Graph.Raid.Create.Perccli",
     "options": {
-        "bootstrap-ubuntu": {
-            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz",
+        "bootstrap-rancher": {
+            "dockerFile": "dell.raid.docker.tar.xz",
             "triggerGroup": "bootstrap"
         },
         "finish-bootstrap-trigger":{
@@ -28,8 +28,8 @@
             }
         },
         {
-            "label": "bootstrap-ubuntu",
-            "taskName": "Task.Linux.Bootstrap.Ubuntu",
+            "label": "bootstrap-rancher",
+            "taskName": "Task.Linux.Bootstrap.Rancher",
             "waitOn": {
                 "reboot": "succeeded"
             }

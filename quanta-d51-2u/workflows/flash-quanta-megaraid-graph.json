@@ -15,8 +15,8 @@
         }
       },
       {
-        "label": "bootstrap-ubuntu",
-        "taskName": "Task.Linux.Bootstrap.Ubuntu",
+        "label": "bootstrap-rancher",
+        "taskName": "Task.Linux.Bootstrap.Rancher",
         "waitOn": {
           "reboot": "succeeded"
         }
@@ -25,7 +25,7 @@
         "label": "download-megaraid-firmware",
         "taskName": "Task.Linux.DownloadFiles",
         "waitOn": {
-          "bootstrap-ubuntu": "succeeded"
+          "bootstrap-rancher": "succeeded"
         }
       },
       {

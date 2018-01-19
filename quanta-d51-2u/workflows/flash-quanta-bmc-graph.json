@@ -24,8 +24,8 @@
       },
       {
         "x-description": "Configure the node to load the microkernel image",
-        "label": "bootstrap-ubuntu",
-        "taskName": "Task.Linux.Bootstrap.Ubuntu",
+        "label": "bootstrap-rancher",
+        "taskName": "Task.Linux.Bootstrap.Rancher",
         "waitOn": {
           "reboot": "succeeded"
         }
@@ -34,7 +34,7 @@
         "label": "catalog-quanta-bmc-before",
         "taskName": "Task.Catalog.bmc",
         "waitOn": {
-          "bootstrap-ubuntu": "succeeded"
+          "bootstrap-rancher": "succeeded"
         }
       },
       {

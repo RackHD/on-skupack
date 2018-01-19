@@ -2,8 +2,8 @@
     "friendlyName": "Dell perccli Catalog",
     "injectableName": "Graph.Dell.perccli.Catalog",
     "options": {
-        "bootstrap-ubuntu": {
-            "overlayfsUri": "{{ api.server }}/common/dell.raid.overlay.cpio.gz"
+        "bootstrap-rancher": {
+            "dockerFile": "dell.raid.docker.tar.xz"
         }
     },
     "tasks": [
@@ -20,8 +20,8 @@
             }
         },
         {
-            "label": "bootstrap-ubuntu",
-            "taskName": "Task.Linux.Bootstrap.Ubuntu",
+            "label": "bootstrap-rancher",
+            "taskName": "Task.Linux.Bootstrap.Rancher",
             "waitOn": {
                 "reboot-start": "succeeded"
             }
@@ -31,7 +31,7 @@
             "label": "catalog-perccli",
             "taskName": "Task.Catalog.perccli",
             "waitOn": {
-                "bootstrap-ubuntu": "succeeded"
+                "bootstrap-rancher": "succeeded"
             }
         },
         {
