@@ -35,7 +35,7 @@ Copyright © 2017 Dell Inc. or its subsidiaries.  All Rights Reserved.
   ```
   $ curl -X POST -F file=@tarballs/sku_pack_directory_subname.tar.gz localhost:8080/api/current/skus/pack
   Note: The above command will return a SKU ID. If an error like “Duplicate name found”
-  is returned in place of the the SKU ID, check the database (with the command:$ curl {ORA IP}:8080/api/current/skus | python -mjson.tool ) and delete
+  is returned in place of the SKU ID, check the database (with the command:$ curl {ORA IP}:8080/api/current/skus | python -mjson.tool ) and delete
   a preexisting SKU package ( with the command: $ curl -X DELETE {ORA IP}:8080/api/current/skus/{sku id})
   ```
 
